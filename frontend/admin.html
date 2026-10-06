@@ -1,0 +1,4358 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>HRMS - Admin Dashboard</title>
+
+    <link
+        rel="stylesheet"
+        href="/static/style.css"
+    >
+
+    <style>
+
+        .section-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .primary-button {
+            background: #1f2937;
+            color: white;
+            padding: 10px 16px;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+
+        .primary-button:hover {
+            background: #111827;
+        }
+
+        .secondary-button {
+            background: #6b7280;
+            color: white;
+            padding: 8px 13px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .secondary-button:hover {
+            background: #4b5563;
+        }
+
+        .danger-button {
+            background: #dc2626;
+            color: white;
+            padding: 8px 13px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .danger-button:hover {
+            background: #b91c1c;
+        }
+
+        .success-button {
+            background: #16a34a;
+            color: white;
+            padding: 8px 13px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .success-button:hover {
+            background: #15803d;
+        }
+
+        .blue-button {
+            background: #2563eb;
+            color: white;
+            padding: 8px 13px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .blue-button:hover {
+            background: #1d4ed8;
+        }
+
+        .orange-button {
+            background: #d97706;
+            color: white;
+            padding: 8px 13px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .orange-button:hover {
+            background: #b45309;
+        }
+
+        .table-container {
+            width: 100%;
+            overflow-x: auto;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
+        }
+
+        .employee-table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        .employee-table th,
+        .employee-table td {
+            white-space: nowrap;
+        }
+
+        .loading {
+            text-align: center;
+            padding: 25px;
+            color: #6b7280;
+        }
+
+        .message {
+            padding: 12px 15px;
+            border-radius: 6px;
+            margin-bottom: 15px;
+            background: #f3f4f6;
+            color: #374151;
+        }
+
+        .success-message {
+            background: #dcfce7;
+            color: #166534;
+        }
+
+        .error-message {
+            background: #fee2e2;
+            color: #991b1b;
+        }
+
+        .employee-form {
+            background: white;
+            padding: 25px;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
+            margin-bottom: 25px;
+        }
+
+        .employee-form h3 {
+            margin-bottom: 20px;
+        }
+
+        .form-grid {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 18px;
+        }
+
+        .form-field {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .form-field label {
+            font-size: 14px;
+            font-weight: bold;
+            margin-bottom: 7px;
+            color: #374151;
+        }
+
+        .form-field input,
+        .form-field select {
+            padding: 11px;
+            border: 1px solid #d1d5db;
+            border-radius: 6px;
+            font-size: 14px;
+        }
+
+        .form-field input:focus,
+        .form-field select:focus {
+            outline: none;
+            border-color: #4b5563;
+        }
+
+        .form-actions {
+            margin-top: 20px;
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+
+        .employee-details {
+            background: white;
+            padding: 25px;
+            border-radius: 10px;
+            margin-bottom: 25px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
+        }
+
+        .details-grid {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 15px;
+        }
+
+        .detail-item {
+            padding: 15px;
+            background: #f9fafb;
+            border-radius: 7px;
+        }
+
+        .detail-label {
+            font-size: 12px;
+            color: #6b7280;
+            margin-bottom: 5px;
+        }
+
+        .detail-value {
+            font-weight: bold;
+            color: #1f2937;
+        }
+
+        .status-pending {
+            background: #fef3c7;
+            color: #92400e;
+        }
+
+        .status-approved {
+            background: #dcfce7;
+            color: #166534;
+        }
+
+        .status-rejected {
+            background: #fee2e2;
+            color: #991b1b;
+        }
+
+        .status-generated {
+            background: #dbeafe;
+            color: #1e40af;
+        }
+
+        .status-locked {
+            background: #ede9fe;
+            color: #6d28d9;
+        }
+
+        .status-credited {
+            background: #dcfce7;
+            color: #166534;
+        }
+
+        .status {
+            display: inline-block;
+            padding: 5px 10px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: bold;
+        }
+
+        .leave-reason {
+            white-space: normal !important;
+            min-width: 180px;
+            max-width: 300px;
+        }
+
+        .action-buttons {
+            display: flex;
+            gap: 7px;
+            flex-wrap: wrap;
+        }
+
+        .report-card {
+            background: white;
+            padding: 25px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
+        }
+
+        .report-card h3 {
+            margin-bottom: 8px;
+        }
+
+        .report-card p {
+            color: #6b7280;
+            margin-bottom: 18px;
+        }
+
+        .payroll-summary {
+            display: grid;
+            grid-template-columns: repeat(4, minmax(0, 1fr));
+            gap: 15px;
+            margin-bottom: 25px;
+        }
+
+        .payroll-summary-card {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
+        }
+
+        .payroll-summary-card h4 {
+            color: #6b7280;
+            font-size: 13px;
+            margin-bottom: 10px;
+        }
+
+        .payroll-summary-card p {
+            font-size: 26px;
+            font-weight: bold;
+            color: #1f2937;
+        }
+
+        .salary {
+            font-weight: bold;
+        }
+
+        @media (max-width: 1000px) {
+
+            .payroll-summary {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+            }
+
+        }
+
+        @media (max-width: 800px) {
+
+            .form-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .details-grid {
+                grid-template-columns: 1fr;
+            }
+
+        }
+
+        @media (max-width: 600px) {
+
+            .payroll-summary {
+                grid-template-columns: 1fr;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+<div class="dashboard">
+
+
+    <!-- ======================================================
+         SIDEBAR
+         ====================================================== -->
+
+    <aside class="sidebar">
+
+        <div class="sidebar-logo">
+            HRMS
+        </div>
+
+        <div class="sidebar-title">
+            Admin / HR Panel
+        </div>
+
+        <nav>
+
+            <button onclick="showSection('dashboard')">
+                Dashboard
+            </button>
+
+            <button onclick="showSection('employees')">
+                Employees
+            </button>
+
+            <button onclick="showSection('attendance')">
+                Attendance
+            </button>
+
+            <button onclick="showSection('leaves')">
+                Leaves
+            </button>
+
+            <button onclick="showSection('payroll')">
+                Payroll
+            </button>
+
+            <button onclick="showSection('reports')">
+                Reports
+            </button>
+
+        </nav>
+
+        <button
+            class="logout-button"
+            onclick="logout()"
+        >
+            Logout
+        </button>
+
+    </aside>
+
+
+
+    <!-- ======================================================
+         MAIN CONTENT
+         ====================================================== -->
+
+    <main class="main-content">
+
+
+        <!-- ==================================================
+             DASHBOARD
+             ================================================== -->
+
+        <section
+            id="dashboard"
+            class="content-section"
+        >
+
+            <div class="dashboard-header">
+
+                <h1>
+                    Admin Dashboard
+                </h1>
+
+                <p>
+                    Human Resource Management System
+                </p>
+
+            </div>
+
+
+            <div class="cards">
+
+                <div class="card">
+
+                    <h3>
+                        Total Employees
+                    </h3>
+
+                    <p id="totalEmployees">
+                        -
+                    </p>
+
+                </div>
+
+
+                <div class="card">
+
+                    <h3>
+                        Active Employees
+                    </h3>
+
+                    <p id="activeEmployees">
+                        -
+                    </p>
+
+                </div>
+
+
+                <div class="card">
+
+                    <h3>
+                        Inactive Employees
+                    </h3>
+
+                    <p id="inactiveEmployees">
+                        -
+                    </p>
+
+                </div>
+
+
+                <div class="card">
+
+                    <h3>
+                        Today's Attendance
+                    </h3>
+
+                    <p id="todayAttendance">
+                        -
+                    </p>
+
+                </div>
+
+
+                <div class="card">
+
+                    <h3>
+                        Pending Leaves
+                    </h3>
+
+                    <p id="pendingLeaves">
+                        -
+                    </p>
+
+                </div>
+
+
+                <div class="card">
+
+                    <h3>
+                        Credited Payroll
+                    </h3>
+
+                    <p id="creditedPayroll">
+                        -
+                    </p>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- ==================================================
+             EMPLOYEES
+             ================================================== -->
+
+        <section
+            id="employees"
+            class="content-section"
+            style="display:none;"
+        >
+
+            <div class="section-header">
+
+                <h2>
+                    Employee Management
+                </h2>
+
+                <button
+                    class="primary-button"
+                    onclick="showAddEmployeeForm()"
+                >
+                    Add Employee
+                </button>
+
+            </div>
+
+
+            <div id="employeeMessage"></div>
+
+
+            <div
+                id="addEmployeePanel"
+                class="employee-form"
+                style="display:none;"
+            >
+
+                <h3>
+                    Add New Employee
+                </h3>
+
+
+                <form id="employeeForm">
+
+                    <div class="form-grid">
+
+                        <div class="form-field">
+
+                            <label>
+                                Employee Code
+                            </label>
+
+                            <input
+                                type="text"
+                                id="employee_code"
+                                required
+                            >
+
+                        </div>
+
+
+                        <div class="form-field">
+
+                            <label>
+                                Full Name
+                            </label>
+
+                            <input
+                                type="text"
+                                id="full_name"
+                                required
+                            >
+
+                        </div>
+
+
+                        <div class="form-field">
+
+                            <label>
+                                Email
+                            </label>
+
+                            <input
+                                type="email"
+                                id="employee_email"
+                                required
+                            >
+
+                        </div>
+
+
+                        <div class="form-field">
+
+                            <label>
+                                Phone
+                            </label>
+
+                            <input
+                                type="text"
+                                id="phone"
+                                required
+                            >
+
+                        </div>
+
+
+                        <div class="form-field">
+
+                            <label>
+                                Department
+                            </label>
+
+                            <input
+                                type="text"
+                                id="department"
+                                required
+                            >
+
+                        </div>
+
+
+                        <div class="form-field">
+
+                            <label>
+                                Designation
+                            </label>
+
+                            <input
+                                type="text"
+                                id="designation"
+                                required
+                            >
+
+                        </div>
+
+
+                        <div class="form-field">
+
+                            <label>
+                                Joining Date
+                            </label>
+
+                            <input
+                                type="date"
+                                id="joining_date"
+                                required
+                            >
+
+                        </div>
+
+
+                        <div class="form-field">
+
+                            <label>
+                                Salary
+                            </label>
+
+                            <input
+                                type="number"
+                                id="salary"
+                                min="0"
+                                required
+                            >
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="form-actions">
+
+                        <button
+                            type="submit"
+                            class="success-button"
+                        >
+                            Save Employee
+                        </button>
+
+                        <button
+                            type="button"
+                            class="secondary-button"
+                            onclick="hideAddEmployeeForm()"
+                        >
+                            Cancel
+                        </button>
+
+                    </div>
+
+                </form>
+
+            </div>
+
+
+
+            <div
+                id="employeeDetails"
+                style="display:none;"
+                class="employee-details"
+            >
+
+                <div class="section-header">
+
+                    <h3>
+                        Employee Details
+                    </h3>
+
+                    <button
+                        class="secondary-button"
+                        onclick="closeEmployeeDetails()"
+                    >
+                        Close
+                    </button>
+
+                </div>
+
+
+                <div
+                    id="employeeDetailsContent"
+                    class="details-grid"
+                ></div>
+
+            </div>
+
+
+
+            <div class="table-container">
+
+                <table class="employee-table">
+
+                    <thead>
+
+                        <tr>
+
+                            <th>ID</th>
+                            <th>Employee Code</th>
+                            <th>Name</th>
+                            <th>Email</th>
+                            <th>Department</th>
+                            <th>Designation</th>
+                            <th>Joining Date</th>
+                            <th>Salary</th>
+                            <th>Status</th>
+                            <th>Actions</th>
+
+                        </tr>
+
+                    </thead>
+
+
+                    <tbody id="employeeTableBody">
+
+                        <tr>
+
+                            <td
+                                colspan="10"
+                                class="loading"
+                            >
+                                Loading employees...
+                            </td>
+
+                        </tr>
+
+                    </tbody>
+
+                </table>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- ==================================================
+             ATTENDANCE
+             ================================================== -->
+
+        <section
+            id="attendance"
+            class="content-section"
+            style="display:none;"
+        >
+
+            <div class="section-header">
+
+                <h2>
+                    Attendance Management
+                </h2>
+
+                <button
+                    class="primary-button"
+                    onclick="loadAttendance()"
+                >
+                    Refresh Attendance
+                </button>
+
+            </div>
+
+
+            <div id="attendanceMessage"></div>
+
+
+            <div class="table-container">
+
+                <table class="employee-table">
+
+                    <thead>
+
+                        <tr>
+
+                            <th>Employee</th>
+                            <th>Employee Code</th>
+                            <th>Date</th>
+                            <th>Check In</th>
+                            <th>Check Out</th>
+                            <th>Working Hours</th>
+
+                        </tr>
+
+                    </thead>
+
+
+                    <tbody id="attendanceTableBody">
+
+                        <tr>
+
+                            <td
+                                colspan="6"
+                                class="loading"
+                            >
+                                Loading attendance...
+                            </td>
+
+                        </tr>
+
+                    </tbody>
+
+                </table>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- ==================================================
+             LEAVES
+             ================================================== -->
+
+        <section
+            id="leaves"
+            class="content-section"
+            style="display:none;"
+        >
+
+            <div class="section-header">
+
+                <h2>
+                    Leave Management
+                </h2>
+
+                <button
+                    class="primary-button"
+                    onclick="loadLeaves()"
+                >
+                    Refresh Leaves
+                </button>
+
+            </div>
+
+
+            <div id="leaveMessage"></div>
+
+
+            <div class="table-container">
+
+                <table class="employee-table">
+
+                    <thead>
+
+                        <tr>
+
+                            <th>ID</th>
+                            <th>Employee ID</th>
+                            <th>Leave Type</th>
+                            <th>Start Date</th>
+                            <th>End Date</th>
+                            <th>Total Days</th>
+                            <th>Reason</th>
+                            <th>Status</th>
+                            <th>Applied At</th>
+                            <th>Actions</th>
+
+                        </tr>
+
+                    </thead>
+
+
+                    <tbody id="leaveTableBody">
+
+                        <tr>
+
+                            <td
+                                colspan="10"
+                                class="loading"
+                            >
+                                Loading leave requests...
+                            </td>
+
+                        </tr>
+
+                    </tbody>
+
+                </table>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- ==================================================
+             PAYROLL
+             ================================================== -->
+
+        <section
+            id="payroll"
+            class="content-section"
+            style="display:none;"
+        >
+
+            <div class="section-header">
+
+                <div>
+
+                    <h2>
+                        Payroll Management
+                    </h2>
+
+                    <p style="color:#6b7280; margin-top:5px;">
+                        Generate, lock, credit and download salary slips.
+                    </p>
+
+                </div>
+
+
+                <button
+                    class="primary-button"
+                    onclick="loadPayroll()"
+                >
+                    Refresh Payroll
+                </button>
+
+            </div>
+
+
+            <div id="payrollMessage"></div>
+
+
+            <!-- PAYROLL SUMMARY -->
+
+            <div class="payroll-summary">
+
+                <div class="payroll-summary-card">
+
+                    <h4>
+                        Total Payroll Records
+                    </h4>
+
+                    <p id="totalPayrollRecords">
+                        0
+                    </p>
+
+                </div>
+
+
+                <div class="payroll-summary-card">
+
+                    <h4>
+                        Generated
+                    </h4>
+
+                    <p id="generatedPayroll">
+                        0
+                    </p>
+
+                </div>
+
+
+                <div class="payroll-summary-card">
+
+                    <h4>
+                        Locked
+                    </h4>
+
+                    <p id="lockedPayroll">
+                        0
+                    </p>
+
+                </div>
+
+
+                <div class="payroll-summary-card">
+
+                    <h4>
+                        Credited
+                    </h4>
+
+                    <p id="creditedPayrollRecords">
+                        0
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <!-- GENERATE PAYROLL -->
+
+            <div class="employee-form">
+
+                <h3>
+                    Generate Payroll
+                </h3>
+
+                <p style="color:#6b7280; margin-bottom:20px;">
+                    Select an active employee to generate the monthly payroll.
+                </p>
+
+
+                <div class="form-grid">
+
+                    <div class="form-field">
+
+                        <label>
+                            Employee
+                        </label>
+
+                        <select
+                            id="payrollEmployee"
+                        >
+
+                            <option value="">
+                                Select Employee
+                            </option>
+
+                        </select>
+
+                    </div>
+
+
+                    <div class="form-field">
+
+                        <label>
+                            Payroll Month
+                        </label>
+
+                        <input
+                            type="month"
+                            id="payrollMonth"
+                        >
+
+                    </div>
+
+                </div>
+
+
+                <div class="form-actions">
+
+                    <button
+                        class="success-button"
+                        onclick="generatePayroll()"
+                    >
+                        Generate Payroll
+                    </button>
+
+                    <button
+                        class="secondary-button"
+                        onclick="loadPayrollEmployees()"
+                    >
+                        Refresh Employees
+                    </button>
+
+                </div>
+
+            </div>
+
+
+            <!-- PAYROLL TABLE -->
+
+            <div class="table-container">
+
+                <table class="employee-table">
+
+                    <thead>
+
+                        <tr>
+
+                            <th>ID</th>
+                            <th>Employee ID</th>
+                            <th>Month</th>
+                            <th>Gross Salary</th>
+                            <th>Present Days</th>
+                            <th>Leave Days</th>
+                            <th>LOP Days</th>
+                            <th>LOP Deduction</th>
+                            <th>Net Salary</th>
+                            <th>Status</th>
+                            <th>Actions</th>
+
+                        </tr>
+
+                    </thead>
+
+
+                    <tbody id="payrollTableBody">
+
+                        <tr>
+
+                            <td
+                                colspan="11"
+                                class="loading"
+                            >
+                                Loading payroll records...
+                            </td>
+
+                        </tr>
+
+                    </tbody>
+
+                </table>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- ==================================================
+             REPORTS
+             ================================================== -->
+
+        <section
+            id="reports"
+            class="content-section"
+            style="display:none;"
+        >
+
+            <div class="section-header">
+
+                <div>
+
+                    <h2>
+                        Reports
+                    </h2>
+
+                    <p style="color:#6b7280; margin-top:5px;">
+                        Download HRMS reports in CSV or PDF format.
+                    </p>
+
+                </div>
+
+
+                <button
+                    class="primary-button"
+                    onclick="loadReports()"
+                >
+                    Refresh Reports
+                </button>
+
+            </div>
+
+
+            <div id="reportMessage"></div>
+
+
+            <!-- EMPLOYEE REPORT -->
+
+            <div class="report-card">
+
+                <h3>
+                    Employee Report
+                </h3>
+
+                <p>
+                    Download employee information and status.
+                </p>
+
+
+                <div class="action-buttons">
+
+                    <button
+                        class="success-button"
+                        onclick="downloadReport(
+                            '/reports/employees/csv',
+                            'employee_report.csv'
+                        )"
+                    >
+                        Download CSV
+                    </button>
+
+
+                    <button
+                        class="blue-button"
+                        onclick="downloadReport(
+                            '/reports/employees/pdf',
+                            'employee_report.pdf'
+                        )"
+                    >
+                        Download PDF
+                    </button>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- ATTENDANCE REPORT -->
+
+            <div class="report-card">
+
+                <h3>
+                    Attendance Report
+                </h3>
+
+                <p>
+                    Download employee attendance records.
+                </p>
+
+
+                <div class="action-buttons">
+
+                    <button
+                        class="success-button"
+                        onclick="downloadReport(
+                            '/reports/attendance/csv',
+                            'attendance_report.csv'
+                        )"
+                    >
+                        Download CSV
+                    </button>
+
+
+                    <button
+                        class="blue-button"
+                        onclick="downloadReport(
+                            '/reports/attendance/pdf',
+                            'attendance_report.pdf'
+                        )"
+                    >
+                        Download PDF
+                    </button>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- LEAVE REPORT -->
+
+            <div class="report-card">
+
+                <h3>
+                    Leave Report
+                </h3>
+
+                <p>
+                    Download employee leave history.
+                </p>
+
+
+                <div class="action-buttons">
+
+                    <button
+                        class="success-button"
+                        onclick="downloadReport(
+                            '/reports/leaves/csv',
+                            'leave_report.csv'
+                        )"
+                    >
+                        Download CSV
+                    </button>
+
+
+                    <button
+                        class="blue-button"
+                        onclick="downloadReport(
+                            '/reports/leaves/pdf',
+                            'leave_report.pdf'
+                        )"
+                    >
+                        Download PDF
+                    </button>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- PAYROLL REPORT -->
+
+            <div class="report-card">
+
+                <h3>
+                    Payroll Report
+                </h3>
+
+                <p>
+                    Download payroll records and salary information.
+                </p>
+
+
+                <div class="action-buttons">
+
+                    <button
+                        class="success-button"
+                        onclick="downloadReport(
+                            '/reports/payroll/csv',
+                            'payroll_report.csv'
+                        )"
+                    >
+                        Download CSV
+                    </button>
+
+
+                    <button
+                        class="blue-button"
+                        onclick="downloadReport(
+                            '/reports/payroll/pdf',
+                            'payroll_report.pdf'
+                        )"
+                    >
+                        Download PDF
+                    </button>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+    </main>
+
+</div>
+
+
+
+<script>
+
+/* ============================================================
+   BASIC CONFIGURATION
+   ============================================================ */
+
+const API_URL =
+    "http://127.0.0.1:8000";
+
+
+const token =
+    localStorage.getItem(
+        "access_token"
+    );
+
+
+const storedUser =
+    localStorage.getItem(
+        "user"
+    );
+
+
+/* ============================================================
+   LOGIN CHECK
+   ============================================================ */
+
+if (!token || !storedUser) {
+
+    window.location.href = "/";
+
+}
+
+
+let currentUser = null;
+
+
+try {
+
+    currentUser =
+        JSON.parse(
+            storedUser
+        );
+
+} catch (error) {
+
+    console.error(error);
+
+    localStorage.clear();
+
+    window.location.href = "/";
+
+}
+
+
+/* ============================================================
+   API HEADERS
+   ============================================================ */
+
+function getHeaders() {
+
+    return {
+
+        "Authorization":
+            `Bearer ${token}`,
+
+        "Content-Type":
+            "application/json"
+
+    };
+
+}
+
+
+/* ============================================================
+   SECTION NAVIGATION
+   ============================================================ */
+
+function showSection(
+    sectionId
+) {
+
+    const sections =
+        document.querySelectorAll(
+            ".content-section"
+        );
+
+
+    sections.forEach(
+        function(section) {
+
+            section.style.display =
+                "none";
+
+        }
+    );
+
+
+    const selected =
+        document.getElementById(
+            sectionId
+        );
+
+
+    if (selected) {
+
+        selected.style.display =
+            "block";
+
+    }
+
+
+    if (
+        sectionId ===
+        "dashboard"
+    ) {
+
+        loadDashboard();
+
+    }
+
+
+    if (
+        sectionId ===
+        "employees"
+    ) {
+
+        loadEmployees();
+
+    }
+
+
+    if (
+        sectionId ===
+        "attendance"
+    ) {
+
+        loadAttendance();
+
+    }
+
+
+    if (
+        sectionId ===
+        "leaves"
+    ) {
+
+        loadLeaves();
+
+    }
+
+
+    if (
+        sectionId ===
+        "payroll"
+    ) {
+
+        loadPayroll();
+
+        loadPayrollEmployees();
+
+    }
+
+
+    if (
+        sectionId ===
+        "reports"
+    ) {
+
+        loadReports();
+
+    }
+
+}
+
+
+/* ============================================================
+   DASHBOARD
+   ============================================================ */
+
+async function loadDashboard() {
+
+    try {
+
+        const response =
+            await fetch(
+                `${API_URL}/dashboard/admin`,
+                {
+                    method: "GET",
+                    headers:
+                        getHeaders()
+                }
+            );
+
+
+        const data =
+            await response.json();
+
+
+        if (!response.ok) {
+
+            throw new Error(
+                data.detail ||
+                "Unable to load dashboard"
+            );
+
+        }
+
+
+        document.getElementById(
+            "totalEmployees"
+        ).textContent =
+            data.employees?.total ??
+            0;
+
+
+        document.getElementById(
+            "activeEmployees"
+        ).textContent =
+            data.employees?.active ??
+            0;
+
+
+        document.getElementById(
+            "inactiveEmployees"
+        ).textContent =
+            data.employees?.inactive ??
+            0;
+
+
+        document.getElementById(
+            "todayAttendance"
+        ).textContent =
+            data.attendance_today?.present ??
+            0;
+
+
+        document.getElementById(
+            "pendingLeaves"
+        ).textContent =
+            data.leaves?.pending ??
+            0;
+
+
+        document.getElementById(
+            "creditedPayroll"
+        ).textContent =
+            data.payroll?.credited ??
+            0;
+
+
+    } catch (error) {
+
+        console.error(
+            "Dashboard error:",
+            error
+        );
+
+    }
+
+}
+
+
+/* ============================================================
+   EMPLOYEE MANAGEMENT
+   ============================================================ */
+
+async function loadEmployees() {
+
+    const tableBody =
+        document.getElementById(
+            "employeeTableBody"
+        );
+
+
+    tableBody.innerHTML = `
+        <tr>
+            <td colspan="10" class="loading">
+                Loading employees...
+            </td>
+        </tr>
+    `;
+
+
+    try {
+
+        const response =
+            await fetch(
+                `${API_URL}/employees`,
+                {
+                    method: "GET",
+                    headers:
+                        getHeaders()
+                }
+            );
+
+
+        const data =
+            await response.json();
+
+
+        if (!response.ok) {
+
+            throw new Error(
+                data.detail ||
+                "Unable to load employees"
+            );
+
+        }
+
+
+        const employees =
+            Array.isArray(data)
+                ? data
+                : data.employees ||
+                  [];
+
+
+        if (
+            employees.length === 0
+        ) {
+
+            tableBody.innerHTML = `
+                <tr>
+                    <td
+                        colspan="10"
+                        class="loading"
+                    >
+                        No employees found.
+                    </td>
+                </tr>
+            `;
+
+            return;
+
+        }
+
+
+        tableBody.innerHTML =
+            "";
+
+
+        employees.forEach(
+            function(employee) {
+
+                const row =
+                    document.createElement(
+                        "tr"
+                    );
+
+
+                const statusClass =
+                    employee.is_active
+                        ? "status-active"
+                        : "status-inactive";
+
+
+                const statusText =
+                    employee.is_active
+                        ? "Active"
+                        : "Inactive";
+
+
+                row.innerHTML = `
+
+                    <td>
+                        ${employee.id ?? "-"}
+                    </td>
+
+                    <td>
+                        ${employee.employee_code ?? "-"}
+                    </td>
+
+                    <td>
+                        ${employee.full_name ?? "-"}
+                    </td>
+
+                    <td>
+                        ${employee.email ?? "-"}
+                    </td>
+
+                    <td>
+                        ${employee.department ?? "-"}
+                    </td>
+
+                    <td>
+                        ${employee.designation ?? "-"}
+                    </td>
+
+                    <td>
+                        ${employee.joining_date ?? "-"}
+                    </td>
+
+                    <td>
+                        ₹${employee.salary ?? 0}
+                    </td>
+
+                    <td>
+
+                        <span
+                            class="status ${statusClass}"
+                        >
+                            ${statusText}
+                        </span>
+
+                    </td>
+
+                    <td>
+
+                        <button
+                            class="secondary-button"
+                            onclick="viewEmployee(${employee.id})"
+                        >
+                            View
+                        </button>
+
+                        ${
+                            employee.is_active
+                            ?
+                            `
+                            <button
+                                class="danger-button"
+                                onclick="deactivateEmployee(${employee.id})"
+                            >
+                                Deactivate
+                            </button>
+                            `
+                            :
+                            `
+                            <button
+                                class="success-button"
+                                onclick="activateEmployee(${employee.id})"
+                            >
+                                Activate
+                            </button>
+                            `
+                        }
+
+                    </td>
+
+                `;
+
+
+                tableBody.appendChild(
+                    row
+                );
+
+            }
+        );
+
+
+    } catch (error) {
+
+        console.error(
+            "Employee loading error:",
+            error
+        );
+
+
+        tableBody.innerHTML = `
+            <tr>
+                <td colspan="10">
+                    Unable to load employees.
+                    ${error.message}
+                </td>
+            </tr>
+        `;
+
+    }
+
+}
+
+
+/* ============================================================
+   ADD EMPLOYEE FORM
+   ============================================================ */
+
+function showAddEmployeeForm() {
+
+    document.getElementById(
+        "addEmployeePanel"
+    ).style.display =
+        "block";
+
+
+    document.getElementById(
+        "employeeForm"
+    ).reset();
+
+}
+
+
+function hideAddEmployeeForm() {
+
+    document.getElementById(
+        "addEmployeePanel"
+    ).style.display =
+        "none";
+
+}
+
+
+document.getElementById(
+    "employeeForm"
+).addEventListener(
+    "submit",
+    async function(event) {
+
+        event.preventDefault();
+
+
+        const employeeData = {
+
+            employee_code:
+                document.getElementById(
+                    "employee_code"
+                ).value.trim(),
+
+            full_name:
+                document.getElementById(
+                    "full_name"
+                ).value.trim(),
+
+            email:
+                document.getElementById(
+                    "employee_email"
+                ).value.trim(),
+
+            phone:
+                document.getElementById(
+                    "phone"
+                ).value.trim(),
+
+            department:
+                document.getElementById(
+                    "department"
+                ).value.trim(),
+
+            designation:
+                document.getElementById(
+                    "designation"
+                ).value.trim(),
+
+            joining_date:
+                document.getElementById(
+                    "joining_date"
+                ).value,
+
+            salary:
+                Number(
+                    document.getElementById(
+                        "salary"
+                    ).value
+                )
+
+        };
+
+
+        try {
+
+            const response =
+                await fetch(
+                    `${API_URL}/employees`,
+                    {
+                        method:
+                            "POST",
+
+                        headers:
+                            getHeaders(),
+
+                        body:
+                            JSON.stringify(
+                                employeeData
+                            )
+                    }
+                );
+
+
+            const data =
+                await response.json();
+
+
+            if (!response.ok) {
+
+                throw new Error(
+                    data.detail ||
+                    "Unable to create employee"
+                );
+
+            }
+
+
+            showEmployeeMessage(
+                "Employee created successfully.",
+                true
+            );
+
+
+            hideAddEmployeeForm();
+
+            loadEmployees();
+
+            loadDashboard();
+
+
+        } catch (error) {
+
+            showEmployeeMessage(
+                error.message,
+                false
+            );
+
+        }
+
+    }
+);
+
+
+/* ============================================================
+   VIEW EMPLOYEE
+   ============================================================ */
+
+async function viewEmployee(
+    employeeId
+) {
+
+    try {
+
+        const response =
+            await fetch(
+                `${API_URL}/employees/${employeeId}`,
+                {
+                    method: "GET",
+                    headers:
+                        getHeaders()
+                }
+            );
+
+
+        const data =
+            await response.json();
+
+
+        if (!response.ok) {
+
+            throw new Error(
+                data.detail ||
+                "Unable to load employee"
+            );
+
+        }
+
+
+        const details =
+            document.getElementById(
+                "employeeDetailsContent"
+            );
+
+
+        details.innerHTML = `
+
+            <div class="detail-item">
+                <div class="detail-label">ID</div>
+                <div class="detail-value">
+                    ${data.id ?? "-"}
+                </div>
+            </div>
+
+            <div class="detail-item">
+                <div class="detail-label">
+                    Employee Code
+                </div>
+                <div class="detail-value">
+                    ${data.employee_code ?? "-"}
+                </div>
+            </div>
+
+            <div class="detail-item">
+                <div class="detail-label">
+                    Full Name
+                </div>
+                <div class="detail-value">
+                    ${data.full_name ?? "-"}
+                </div>
+            </div>
+
+            <div class="detail-item">
+                <div class="detail-label">
+                    Email
+                </div>
+                <div class="detail-value">
+                    ${data.email ?? "-"}
+                </div>
+            </div>
+
+            <div class="detail-item">
+                <div class="detail-label">
+                    Phone
+                </div>
+                <div class="detail-value">
+                    ${data.phone ?? "-"}
+                </div>
+            </div>
+
+            <div class="detail-item">
+                <div class="detail-label">
+                    Department
+                </div>
+                <div class="detail-value">
+                    ${data.department ?? "-"}
+                </div>
+            </div>
+
+            <div class="detail-item">
+                <div class="detail-label">
+                    Designation
+                </div>
+                <div class="detail-value">
+                    ${data.designation ?? "-"}
+                </div>
+            </div>
+
+            <div class="detail-item">
+                <div class="detail-label">
+                    Joining Date
+                </div>
+                <div class="detail-value">
+                    ${data.joining_date ?? "-"}
+                </div>
+            </div>
+
+            <div class="detail-item">
+                <div class="detail-label">
+                    Salary
+                </div>
+                <div class="detail-value">
+                    ₹${data.salary ?? 0}
+                </div>
+            </div>
+
+            <div class="detail-item">
+                <div class="detail-label">
+                    Status
+                </div>
+                <div class="detail-value">
+                    ${
+                        data.is_active
+                            ? "Active"
+                            : "Inactive"
+                    }
+                </div>
+            </div>
+
+        `;
+
+
+        document.getElementById(
+            "employeeDetails"
+        ).style.display =
+            "block";
+
+
+        window.scrollTo({
+            top: 0,
+            behavior: "smooth"
+        });
+
+
+    } catch (error) {
+
+        showEmployeeMessage(
+            error.message,
+            false
+        );
+
+    }
+
+}
+
+
+function closeEmployeeDetails() {
+
+    document.getElementById(
+        "employeeDetails"
+    ).style.display =
+        "none";
+
+}
+
+
+/* ============================================================
+   DEACTIVATE EMPLOYEE
+   ============================================================ */
+
+async function deactivateEmployee(
+    employeeId
+) {
+
+    if (
+        !confirm(
+            "Are you sure you want to deactivate this employee?"
+        )
+    ) {
+
+        return;
+
+    }
+
+
+    try {
+
+        const response =
+            await fetch(
+                `${API_URL}/employees/${employeeId}/deactivate`,
+                {
+                    method: "PATCH",
+                    headers:
+                        getHeaders()
+                }
+            );
+
+
+        const data =
+            await response.json();
+
+
+        if (!response.ok) {
+
+            throw new Error(
+                data.detail ||
+                "Unable to deactivate employee"
+            );
+
+        }
+
+
+        showEmployeeMessage(
+            "Employee deactivated successfully.",
+            true
+        );
+
+
+        loadEmployees();
+
+        loadDashboard();
+
+
+    } catch (error) {
+
+        showEmployeeMessage(
+            error.message,
+            false
+        );
+
+    }
+
+}
+
+
+/* ============================================================
+   ACTIVATE EMPLOYEE
+   ============================================================ */
+
+async function activateEmployee(
+    employeeId
+) {
+
+    try {
+
+        const response =
+            await fetch(
+                `${API_URL}/employees/${employeeId}/activate`,
+                {
+                    method: "PATCH",
+                    headers:
+                        getHeaders()
+                }
+            );
+
+
+        const data =
+            await response.json();
+
+
+        if (!response.ok) {
+
+            throw new Error(
+                data.detail ||
+                "Unable to activate employee"
+            );
+
+        }
+
+
+        showEmployeeMessage(
+            "Employee activated successfully.",
+            true
+        );
+
+
+        loadEmployees();
+
+        loadDashboard();
+
+
+    } catch (error) {
+
+        showEmployeeMessage(
+            error.message,
+            false
+        );
+
+    }
+
+}
+
+
+/* ============================================================
+   EMPLOYEE MESSAGE
+   ============================================================ */
+
+function showEmployeeMessage(
+    message,
+    success
+) {
+
+    const element =
+        document.getElementById(
+            "employeeMessage"
+        );
+
+
+    element.className =
+        success
+            ? "message success-message"
+            : "message error-message";
+
+
+    element.textContent =
+        message;
+
+
+    setTimeout(
+        function() {
+
+            element.textContent =
+                "";
+
+            element.className =
+                "";
+
+        },
+        4000
+    );
+
+}
+
+
+/* ============================================================
+   ATTENDANCE MANAGEMENT
+   ============================================================ */
+
+async function loadAttendance() {
+
+    const tableBody =
+        document.getElementById(
+            "attendanceTableBody"
+        );
+
+
+    tableBody.innerHTML = `
+        <tr>
+            <td
+                colspan="6"
+                class="loading"
+            >
+                Loading attendance...
+            </td>
+        </tr>
+    `;
+
+
+    try {
+
+        const employeeResponse =
+            await fetch(
+                `${API_URL}/employees`,
+                {
+                    method: "GET",
+                    headers:
+                        getHeaders()
+                }
+            );
+
+
+        const employeeData =
+            await employeeResponse.json();
+
+
+        if (!employeeResponse.ok) {
+
+            throw new Error(
+                employeeData.detail ||
+                "Unable to load employees"
+            );
+
+        }
+
+
+        const employees =
+            Array.isArray(employeeData)
+                ? employeeData
+                : employeeData.employees ||
+                  [];
+
+
+        let attendanceRows = [];
+
+
+        for (
+            const employee of employees
+        ) {
+
+            try {
+
+                const response =
+                    await fetch(
+                        `${API_URL}/attendance/employee/${employee.id}`,
+                        {
+                            method: "GET",
+                            headers:
+                                getHeaders()
+                        }
+                    );
+
+
+                if (!response.ok) {
+
+                    continue;
+
+                }
+
+
+                const data =
+                    await response.json();
+
+
+                let records = [];
+
+
+                if (
+                    Array.isArray(data)
+                ) {
+
+                    records = data;
+
+                } else if (
+                    Array.isArray(
+                        data.attendance
+                    )
+                ) {
+
+                    records =
+                        data.attendance;
+
+                } else if (
+                    Array.isArray(
+                        data.records
+                    )
+                ) {
+
+                    records =
+                        data.records;
+
+                }
+
+
+                records.forEach(
+                    function(record) {
+
+                        attendanceRows.push({
+
+                            employee:
+                                employee.full_name ||
+                                "-",
+
+                            employee_code:
+                                employee.employee_code ||
+                                "-",
+
+                            date:
+                                record.date ||
+                                record.attendance_date ||
+                                "-",
+
+                            check_in:
+                                record.check_in ||
+                                "-",
+
+                            check_out:
+                                record.check_out ||
+                                "-",
+
+                            working_hours:
+                                record.working_hours ??
+                                "-"
+
+                        });
+
+                    }
+                );
+
+
+            } catch (error) {
+
+                console.error(
+                    `Attendance error for employee ${employee.id}:`,
+                    error
+                );
+
+            }
+
+        }
+
+
+        if (
+            attendanceRows.length === 0
+        ) {
+
+            tableBody.innerHTML = `
+                <tr>
+                    <td
+                        colspan="6"
+                        class="loading"
+                    >
+                        No attendance records found.
+                    </td>
+                </tr>
+            `;
+
+            return;
+
+        }
+
+
+        tableBody.innerHTML =
+            "";
+
+
+        attendanceRows.forEach(
+            function(record) {
+
+                const row =
+                    document.createElement(
+                        "tr"
+                    );
+
+
+                row.innerHTML = `
+
+                    <td>
+                        ${record.employee}
+                    </td>
+
+                    <td>
+                        ${record.employee_code}
+                    </td>
+
+                    <td>
+                        ${record.date}
+                    </td>
+
+                    <td>
+                        ${record.check_in}
+                    </td>
+
+                    <td>
+                        ${record.check_out}
+                    </td>
+
+                    <td>
+                        ${record.working_hours}
+                    </td>
+
+                `;
+
+
+                tableBody.appendChild(
+                    row
+                );
+
+            }
+        );
+
+
+    } catch (error) {
+
+        console.error(
+            "Attendance loading error:",
+            error
+        );
+
+
+        tableBody.innerHTML = `
+            <tr>
+                <td
+                    colspan="6"
+                    class="loading"
+                >
+                    Unable to load attendance.
+                    ${error.message}
+                </td>
+            </tr>
+        `;
+
+    }
+
+}
+
+
+/* ============================================================
+   LEAVE MANAGEMENT
+   ============================================================ */
+
+async function loadLeaves() {
+
+    const tableBody =
+        document.getElementById(
+            "leaveTableBody"
+        );
+
+
+    tableBody.innerHTML = `
+        <tr>
+            <td
+                colspan="10"
+                class="loading"
+            >
+                Loading leave requests...
+            </td>
+        </tr>
+    `;
+
+
+    try {
+
+        const response =
+            await fetch(
+                `${API_URL}/leaves`,
+                {
+                    method: "GET",
+                    headers:
+                        getHeaders()
+                }
+            );
+
+
+        const data =
+            await response.json();
+
+
+        if (!response.ok) {
+
+            throw new Error(
+                data.detail ||
+                "Unable to load leave requests"
+            );
+
+        }
+
+
+        const leaves =
+            Array.isArray(data)
+                ? data
+                : data.leaves ||
+                  [];
+
+
+        if (
+            leaves.length === 0
+        ) {
+
+            tableBody.innerHTML = `
+                <tr>
+                    <td
+                        colspan="10"
+                        class="loading"
+                    >
+                        No leave requests found.
+                    </td>
+                </tr>
+            `;
+
+            return;
+
+        }
+
+
+        tableBody.innerHTML =
+            "";
+
+
+        leaves.forEach(
+            function(leave) {
+
+                const row =
+                    document.createElement(
+                        "tr"
+                    );
+
+
+                const status =
+                    (
+                        leave.status ||
+                        ""
+                    ).toLowerCase();
+
+
+                let statusClass =
+                    "status-pending";
+
+
+                if (
+                    status ===
+                    "approved"
+                ) {
+
+                    statusClass =
+                        "status-approved";
+
+                }
+
+
+                if (
+                    status ===
+                    "rejected"
+                ) {
+
+                    statusClass =
+                        "status-rejected";
+
+                }
+
+
+                let actions =
+                    `<span>-</span>`;
+
+
+                if (
+                    status ===
+                    "pending"
+                ) {
+
+                    actions = `
+
+                        <div
+                            class="action-buttons"
+                        >
+
+                            <button
+                                class="success-button"
+                                onclick="approveLeave(${leave.id})"
+                            >
+                                Approve
+                            </button>
+
+                            <button
+                                class="danger-button"
+                                onclick="rejectLeave(${leave.id})"
+                            >
+                                Reject
+                            </button>
+
+                        </div>
+
+                    `;
+
+                }
+
+
+                row.innerHTML = `
+
+                    <td>
+                        ${leave.id ?? "-"}
+                    </td>
+
+                    <td>
+                        ${leave.employee_id ?? "-"}
+                    </td>
+
+                    <td>
+                        ${formatLeaveType(
+                            leave.leave_type
+                        )}
+                    </td>
+
+                    <td>
+                        ${formatDate(
+                            leave.start_date
+                        )}
+                    </td>
+
+                    <td>
+                        ${formatDate(
+                            leave.end_date
+                        )}
+                    </td>
+
+                    <td>
+                        ${leave.total_days ?? "-"}
+                    </td>
+
+                    <td class="leave-reason">
+                        ${leave.reason ?? "-"}
+                    </td>
+
+                    <td>
+
+                        <span
+                            class="status ${statusClass}"
+                        >
+                            ${capitalize(
+                                leave.status
+                            )}
+                        </span>
+
+                    </td>
+
+                    <td>
+                        ${formatDateTime(
+                            leave.applied_at
+                        )}
+                    </td>
+
+                    <td>
+                        ${actions}
+                    </td>
+
+                `;
+
+
+                tableBody.appendChild(
+                    row
+                );
+
+            }
+        );
+
+
+    } catch (error) {
+
+        console.error(
+            "Leave loading error:",
+            error
+        );
+
+
+        tableBody.innerHTML = `
+            <tr>
+                <td
+                    colspan="10"
+                    class="loading"
+                >
+                    Unable to load leave requests.
+                    ${error.message}
+                </td>
+            </tr>
+        `;
+
+    }
+
+}
+
+
+/* ============================================================
+   APPROVE LEAVE
+   ============================================================ */
+
+async function approveLeave(
+    leaveId
+) {
+
+    if (
+        !confirm(
+            "Are you sure you want to approve this leave?"
+        )
+    ) {
+
+        return;
+
+    }
+
+
+    try {
+
+        const response =
+            await fetch(
+                `${API_URL}/leaves/${leaveId}/approve`,
+                {
+                    method: "PATCH",
+                    headers:
+                        getHeaders()
+                }
+            );
+
+
+        const data =
+            await response.json();
+
+
+        if (!response.ok) {
+
+            throw new Error(
+                data.detail ||
+                "Unable to approve leave"
+            );
+
+        }
+
+
+        showLeaveMessage(
+            "Leave approved successfully.",
+            true
+        );
+
+
+        await loadLeaves();
+
+        loadDashboard();
+
+
+    } catch (error) {
+
+        showLeaveMessage(
+            error.message,
+            false
+        );
+
+    }
+
+}
+
+
+/* ============================================================
+   REJECT LEAVE
+   ============================================================ */
+
+async function rejectLeave(
+    leaveId
+) {
+
+    if (
+        !confirm(
+            "Are you sure you want to reject this leave?"
+        )
+    ) {
+
+        return;
+
+    }
+
+
+    try {
+
+        const response =
+            await fetch(
+                `${API_URL}/leaves/${leaveId}/reject`,
+                {
+                    method: "PATCH",
+                    headers:
+                        getHeaders()
+                }
+            );
+
+
+        const data =
+            await response.json();
+
+
+        if (!response.ok) {
+
+            throw new Error(
+                data.detail ||
+                "Unable to reject leave"
+            );
+
+        }
+
+
+        showLeaveMessage(
+            "Leave rejected successfully.",
+            true
+        );
+
+
+        await loadLeaves();
+
+        loadDashboard();
+
+
+    } catch (error) {
+
+        showLeaveMessage(
+            error.message,
+            false
+        );
+
+    }
+
+}
+
+
+/* ============================================================
+   LEAVE MESSAGE
+   ============================================================ */
+
+function showLeaveMessage(
+    message,
+    success
+) {
+
+    const element =
+        document.getElementById(
+            "leaveMessage"
+        );
+
+
+    element.className =
+        success
+            ? "message success-message"
+            : "message error-message";
+
+
+    element.textContent =
+        message;
+
+
+    setTimeout(
+        function() {
+
+            element.textContent =
+                "";
+
+            element.className =
+                "";
+
+        },
+        4000
+    );
+
+}
+
+
+/* ============================================================
+   LEAVE TYPE FORMAT
+   ============================================================ */
+
+function formatLeaveType(
+    leaveType
+) {
+
+    if (!leaveType) {
+
+        return "-";
+
+    }
+
+
+    return leaveType
+        .charAt(0)
+        .toUpperCase()
+        +
+        leaveType
+            .slice(1)
+            .toLowerCase();
+
+}
+
+
+/* ============================================================
+   CAPITALIZE
+   ============================================================ */
+
+function capitalize(
+    value
+) {
+
+    if (!value) {
+
+        return "-";
+
+    }
+
+
+    return value
+        .charAt(0)
+        .toUpperCase()
+        +
+        value
+            .slice(1);
+
+}
+
+
+/* ============================================================
+   DATE FORMAT
+   ============================================================ */
+
+function formatDate(
+    value
+) {
+
+    if (!value) {
+
+        return "-";
+
+    }
+
+
+    return value;
+
+}
+
+
+/* ============================================================
+   DATE TIME FORMAT
+   ============================================================ */
+
+function formatDateTime(
+    value
+) {
+
+    if (!value) {
+
+        return "-";
+
+    }
+
+
+    return value
+        .toString()
+        .replace(
+            "T",
+            " "
+        )
+        .split(".")[0];
+
+}
+
+
+/* ============================================================
+   PAYROLL EMPLOYEE LIST
+   ============================================================ */
+
+async function loadPayrollEmployees() {
+
+    const select =
+        document.getElementById(
+            "payrollEmployee"
+        );
+
+
+    if (!select) {
+
+        return;
+
+    }
+
+
+    select.innerHTML = `
+        <option value="">
+            Loading employees...
+        </option>
+    `;
+
+
+    try {
+
+        const response =
+            await fetch(
+                `${API_URL}/employees`,
+                {
+                    method: "GET",
+                    headers:
+                        getHeaders()
+                }
+            );
+
+
+        const data =
+            await response.json();
+
+
+        if (!response.ok) {
+
+            throw new Error(
+                data.detail ||
+                "Unable to load employees"
+            );
+
+        }
+
+
+        const employees =
+            Array.isArray(data)
+                ? data
+                : data.employees ||
+                  [];
+
+
+        const activeEmployees =
+            employees.filter(
+                employee =>
+                    employee.is_active
+            );
+
+
+        select.innerHTML = `
+            <option value="">
+                Select Employee
+            </option>
+        `;
+
+
+        activeEmployees.forEach(
+            function(employee) {
+
+                const option =
+                    document.createElement(
+                        "option"
+                    );
+
+
+                option.value =
+                    employee.id;
+
+
+                option.textContent =
+                    `${employee.full_name || "Employee"} - ${employee.employee_code || employee.id}`;
+
+
+                select.appendChild(
+                    option
+                );
+
+            }
+        );
+
+
+        if (
+            activeEmployees.length === 0
+        ) {
+
+            select.innerHTML = `
+                <option value="">
+                    No active employees
+                </option>
+            `;
+
+        }
+
+
+    } catch (error) {
+
+        console.error(
+            "Payroll employee loading error:",
+            error
+        );
+
+
+        select.innerHTML = `
+            <option value="">
+                Unable to load employees
+            </option>
+        `;
+
+    }
+
+}
+
+
+/* ============================================================
+   LOAD PAYROLL
+   ============================================================ */
+
+async function loadPayroll() {
+
+    const tableBody =
+        document.getElementById(
+            "payrollTableBody"
+        );
+
+
+    tableBody.innerHTML = `
+        <tr>
+            <td
+                colspan="11"
+                class="loading"
+            >
+                Loading payroll records...
+            </td>
+        </tr>
+    `;
+
+
+    try {
+
+        const response =
+            await fetch(
+                `${API_URL}/payroll`,
+                {
+                    method: "GET",
+                    headers:
+                        getHeaders()
+                }
+            );
+
+
+        const data =
+            await response.json();
+
+
+        if (!response.ok) {
+
+            throw new Error(
+                data.detail ||
+                "Unable to load payroll records"
+            );
+
+        }
+
+
+        const payrolls =
+            Array.isArray(data)
+                ? data
+                : data.payroll ||
+                  data.records ||
+                  [];
+
+
+        updatePayrollSummary(
+            payrolls
+        );
+
+
+        if (
+            payrolls.length === 0
+        ) {
+
+            tableBody.innerHTML = `
+                <tr>
+                    <td
+                        colspan="11"
+                        class="loading"
+                    >
+                        No payroll records found.
+                    </td>
+                </tr>
+            `;
+
+            return;
+
+        }
+
+
+        tableBody.innerHTML =
+            "";
+
+
+        payrolls.forEach(
+            function(payroll) {
+
+                const row =
+                    document.createElement(
+                        "tr"
+                    );
+
+
+                const status =
+                    String(
+                        payroll.status ||
+                        "generated"
+                    ).toLowerCase();
+
+
+                const statusClass =
+                    getPayrollStatusClass(
+                        status
+                    );
+
+
+                row.innerHTML = `
+
+                    <td>
+                        ${payroll.id ?? "-"}
+                    </td>
+
+                    <td>
+                        ${payroll.employee_id ?? "-"}
+                    </td>
+
+                    <td>
+                        ${getPayrollMonth(
+                            payroll
+                        )}
+                    </td>
+
+                    <td class="salary">
+                        ₹${formatMoney(
+                            payroll.gross_salary ??
+                            payroll.salary ??
+                            0
+                        )}
+                    </td>
+
+                    <td>
+                        ${payroll.present_days ?? 0}
+                    </td>
+
+                    <td>
+                        ${payroll.approved_leave_days ?? 0}
+                    </td>
+
+                    <td>
+                        ${payroll.lop_days ?? 0}
+                    </td>
+
+                    <td>
+                        ₹${formatMoney(
+                            payroll.lop_deduction ?? 0
+                        )}
+                    </td>
+
+                    <td class="salary">
+                        ₹${formatMoney(
+                            payroll.net_salary ?? 0
+                        )}
+                    </td>
+
+                    <td>
+
+                        <span
+                            class="status ${statusClass}"
+                        >
+                            ${capitalize(
+                                status
+                            )}
+                        </span>
+
+                    </td>
+
+                    <td>
+
+                        <div
+                            class="action-buttons"
+                        >
+
+                            ${getPayrollActions(
+                                payroll,
+                                status
+                            )}
+
+                        </div>
+
+                    </td>
+
+                `;
+
+
+                tableBody.appendChild(
+                    row
+                );
+
+            }
+        );
+
+
+    } catch (error) {
+
+        console.error(
+            "Payroll loading error:",
+            error
+        );
+
+
+        tableBody.innerHTML = `
+            <tr>
+                <td
+                    colspan="11"
+                    class="loading"
+                >
+                    Unable to load payroll records.
+                    ${error.message}
+                </td>
+            </tr>
+        `;
+
+    }
+
+}
+
+
+/* ============================================================
+   PAYROLL SUMMARY
+   ============================================================ */
+
+function updatePayrollSummary(
+    payrolls
+) {
+
+    let generated = 0;
+
+    let locked = 0;
+
+    let credited = 0;
+
+
+    payrolls.forEach(
+        function(payroll) {
+
+            const status =
+                String(
+                    payroll.status ||
+                    ""
+                ).toLowerCase();
+
+
+            if (
+                status ===
+                "generated"
+            ) {
+
+                generated++;
+
+            }
+
+
+            if (
+                status ===
+                "locked"
+            ) {
+
+                locked++;
+
+            }
+
+
+            if (
+                status ===
+                "credited"
+            ) {
+
+                credited++;
+
+            }
+
+        }
+    );
+
+
+    document.getElementById(
+        "totalPayrollRecords"
+    ).textContent =
+        payrolls.length;
+
+
+    document.getElementById(
+        "generatedPayroll"
+    ).textContent =
+        generated;
+
+
+    document.getElementById(
+        "lockedPayroll"
+    ).textContent =
+        locked;
+
+
+    document.getElementById(
+        "creditedPayrollRecords"
+    ).textContent =
+        credited;
+
+}
+
+
+/* ============================================================
+   PAYROLL STATUS CLASS
+   ============================================================ */
+
+function getPayrollStatusClass(
+    status
+) {
+
+    if (
+        status ===
+        "generated"
+    ) {
+
+        return "status-generated";
+
+    }
+
+
+    if (
+        status ===
+        "locked"
+    ) {
+
+        return "status-locked";
+
+    }
+
+
+    if (
+        status ===
+        "credited"
+    ) {
+
+        return "status-credited";
+
+    }
+
+
+    return "status-pending";
+
+}
+
+
+/* ============================================================
+   PAYROLL MONTH
+   ============================================================ */
+
+function getPayrollMonth(
+    payroll
+) {
+
+    return (
+        payroll.month ||
+        payroll.payroll_month ||
+        payroll.salary_month ||
+        "-"
+    );
+
+}
+
+
+/* ============================================================
+   MONEY FORMAT
+   ============================================================ */
+
+function formatMoney(
+    value
+) {
+
+    const number =
+        Number(value || 0);
+
+
+    return number.toFixed(2);
+
+}
+
+
+/* ============================================================
+   PAYROLL ACTIONS
+   ============================================================ */
+
+function getPayrollActions(
+    payroll,
+    status
+) {
+
+    let html = "";
+
+
+    if (
+        status ===
+        "generated"
+    ) {
+
+        html += `
+
+            <button
+                class="orange-button"
+                onclick="lockPayroll(${payroll.id})"
+            >
+                Lock
+            </button>
+
+        `;
+
+    }
+
+
+    if (
+        status ===
+        "locked"
+    ) {
+
+        html += `
+
+            <button
+                class="success-button"
+                onclick="creditPayroll(${payroll.id})"
+            >
+                Credit
+            </button>
+
+        `;
+
+    }
+
+
+    html += `
+
+        <button
+            class="blue-button"
+            onclick="downloadSalarySlip(${payroll.id})"
+        >
+            Salary Slip
+        </button>
+
+    `;
+
+
+    if (
+        html.trim() === ""
+    ) {
+
+        html =
+            `<span>-</span>`;
+
+    }
+
+
+    return html;
+
+}
+
+
+/* ============================================================
+   GENERATE PAYROLL
+   ============================================================ */
+
+async function generatePayroll() {
+
+    const employeeId =
+        document.getElementById(
+            "payrollEmployee"
+        ).value;
+
+
+    if (!employeeId) {
+
+        showPayrollMessage(
+            "Please select an employee.",
+            false
+        );
+
+        return;
+
+    }
+
+
+    const selectedMonth =
+        document.getElementById(
+            "payrollMonth"
+        ).value;
+
+
+    if (
+        selectedMonth
+    ) {
+
+        showPayrollMessage(
+            "The payroll API generates the payroll for the applicable month. The selected month is shown only for reference.",
+            true
+        );
+
+    }
+
+
+    if (
+        !confirm(
+            "Generate payroll for the selected employee?"
+        )
+    ) {
+
+        return;
+
+    }
+
+
+    try {
+
+        const response =
+            await fetch(
+                `${API_URL}/payroll/generate/${employeeId}`,
+                {
+                    method: "POST",
+                    headers:
+                        getHeaders()
+                }
+            );
+
+
+        const data =
+            await response.json();
+
+
+        if (!response.ok) {
+
+            throw new Error(
+                data.detail ||
+                "Unable to generate payroll"
+            );
+
+        }
+
+
+        showPayrollMessage(
+            "Payroll generated successfully.",
+            true
+        );
+
+
+        await loadPayroll();
+
+        loadDashboard();
+
+
+    } catch (error) {
+
+        console.error(
+            "Payroll generation error:",
+            error
+        );
+
+
+        showPayrollMessage(
+            error.message,
+            false
+        );
+
+    }
+
+}
+
+
+/* ============================================================
+   LOCK PAYROLL
+   ============================================================ */
+
+async function lockPayroll(
+    payrollId
+) {
+
+    if (
+        !confirm(
+            "Are you sure you want to lock this payroll?"
+        )
+    ) {
+
+        return;
+
+    }
+
+
+    try {
+
+        const response =
+            await fetch(
+                `${API_URL}/payroll/${payrollId}/lock`,
+                {
+                    method: "PATCH",
+                    headers:
+                        getHeaders()
+                }
+            );
+
+
+        const data =
+            await response.json();
+
+
+        if (!response.ok) {
+
+            throw new Error(
+                data.detail ||
+                "Unable to lock payroll"
+            );
+
+        }
+
+
+        showPayrollMessage(
+            "Payroll locked successfully.",
+            true
+        );
+
+
+        await loadPayroll();
+
+        loadDashboard();
+
+
+    } catch (error) {
+
+        console.error(
+            "Payroll lock error:",
+            error
+        );
+
+
+        showPayrollMessage(
+            error.message,
+            false
+        );
+
+    }
+
+}
+
+
+/* ============================================================
+   CREDIT PAYROLL
+   ============================================================ */
+
+async function creditPayroll(
+    payrollId
+) {
+
+    if (
+        !confirm(
+            "Are you sure you want to credit this payroll?"
+        )
+    ) {
+
+        return;
+
+    }
+
+
+    try {
+
+        const response =
+            await fetch(
+                `${API_URL}/payroll/${payrollId}/credit`,
+                {
+                    method: "PATCH",
+                    headers:
+                        getHeaders()
+                }
+            );
+
+
+        const data =
+            await response.json();
+
+
+        if (!response.ok) {
+
+            throw new Error(
+                data.detail ||
+                "Unable to credit payroll"
+            );
+
+        }
+
+
+        showPayrollMessage(
+            "Payroll credited successfully.",
+            true
+        );
+
+
+        await loadPayroll();
+
+        loadDashboard();
+
+
+    } catch (error) {
+
+        console.error(
+            "Payroll credit error:",
+            error
+        );
+
+
+        showPayrollMessage(
+            error.message,
+            false
+        );
+
+    }
+
+}
+
+
+/* ============================================================
+   SALARY SLIP
+   ============================================================ */
+
+async function downloadSalarySlip(
+    payrollId
+) {
+
+    try {
+
+        showPayrollMessage(
+            "Preparing salary slip...",
+            true
+        );
+
+
+        const response =
+            await fetch(
+                `${API_URL}/payroll/${payrollId}/salary-slip`,
+                {
+                    method: "GET",
+                    headers: {
+                        "Authorization":
+                            `Bearer ${token}`
+                    }
+                }
+            );
+
+
+        if (!response.ok) {
+
+            let errorMessage =
+                "Unable to download salary slip.";
+
+
+            try {
+
+                const data =
+                    await response.json();
+
+
+                errorMessage =
+                    data.detail ||
+                    errorMessage;
+
+            } catch (error) {
+
+                console.error(error);
+
+            }
+
+
+            throw new Error(
+                errorMessage
+            );
+
+        }
+
+
+        const blob =
+            await response.blob();
+
+
+        const url =
+            window.URL.createObjectURL(
+                blob
+            );
+
+
+        const link =
+            document.createElement(
+                "a"
+            );
+
+
+        link.href =
+            url;
+
+
+        link.download =
+            `salary_slip_${payrollId}.pdf`;
+
+
+        document.body.appendChild(
+            link
+        );
+
+
+        link.click();
+
+
+        link.remove();
+
+
+        window.URL.revokeObjectURL(
+            url
+        );
+
+
+        showPayrollMessage(
+            "Salary slip downloaded successfully.",
+            true
+        );
+
+
+    } catch (error) {
+
+        console.error(
+            "Salary slip error:",
+            error
+        );
+
+
+        showPayrollMessage(
+            error.message,
+            false
+        );
+
+    }
+
+}
+
+
+/* ============================================================
+   PAYROLL MESSAGE
+   ============================================================ */
+
+function showPayrollMessage(
+    message,
+    success
+) {
+
+    const element =
+        document.getElementById(
+            "payrollMessage"
+        );
+
+
+    element.className =
+        success
+            ? "message success-message"
+            : "message error-message";
+
+
+    element.textContent =
+        message;
+
+
+    setTimeout(
+        function() {
+
+            element.textContent =
+                "";
+
+            element.className =
+                "";
+
+        },
+        5000
+    );
+
+}
+
+
+/* ============================================================
+   REPORTS
+   ============================================================ */
+
+function loadReports() {
+
+    showReportMessage(
+        "Reports are ready to download.",
+        true
+    );
+
+}
+
+
+/* ============================================================
+   DOWNLOAD REPORT
+   ============================================================ */
+
+async function downloadReport(
+    endpoint,
+    filename
+) {
+
+    try {
+
+        showReportMessage(
+            "Preparing report...",
+            true
+        );
+
+
+        const response =
+            await fetch(
+                `${API_URL}${endpoint}`,
+                {
+                    method: "GET",
+
+                    headers: {
+                        "Authorization":
+                            `Bearer ${token}`
+                    }
+                }
+            );
+
+
+        if (!response.ok) {
+
+            let errorMessage =
+                "Unable to download report.";
+
+
+            try {
+
+                const data =
+                    await response.json();
+
+
+                errorMessage =
+                    data.detail ||
+                    errorMessage;
+
+            } catch (error) {
+
+                console.error(error);
+
+            }
+
+
+            throw new Error(
+                errorMessage
+            );
+
+        }
+
+
+        const blob =
+            await response.blob();
+
+
+        const url =
+            window.URL.createObjectURL(
+                blob
+            );
+
+
+        const link =
+            document.createElement(
+                "a"
+            );
+
+
+        link.href =
+            url;
+
+
+        link.download =
+            filename;
+
+
+        document.body.appendChild(
+            link
+        );
+
+
+        link.click();
+
+
+        link.remove();
+
+
+        window.URL.revokeObjectURL(
+            url
+        );
+
+
+        showReportMessage(
+            `${filename} downloaded successfully.`,
+            true
+        );
+
+
+    } catch (error) {
+
+        console.error(
+            "Report download error:",
+            error
+        );
+
+
+        showReportMessage(
+            error.message,
+            false
+        );
+
+    }
+
+}
+
+
+/* ============================================================
+   REPORT MESSAGE
+   ============================================================ */
+
+function showReportMessage(
+    message,
+    success
+) {
+
+    const element =
+        document.getElementById(
+            "reportMessage"
+        );
+
+
+    element.className =
+        success
+            ? "message success-message"
+            : "message error-message";
+
+
+    element.textContent =
+        message;
+
+
+    setTimeout(
+        function() {
+
+            element.textContent =
+                "";
+
+            element.className =
+                "";
+
+        },
+        5000
+    );
+
+}
+
+
+/* ============================================================
+   LOGOUT
+   ============================================================ */
+
+function logout() {
+
+    localStorage.removeItem(
+        "access_token"
+    );
+
+    localStorage.removeItem(
+        "user"
+    );
+
+
+    window.location.href =
+        "/";
+
+}
+
+
+/* ============================================================
+   INITIAL LOAD
+   ============================================================ */
+
+loadDashboard();
+
+</script>
+
+</body>
+
+</html>

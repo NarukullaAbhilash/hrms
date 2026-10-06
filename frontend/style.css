@@ -1,0 +1,650 @@
+/* ============================================================
+   HRMS - GLOBAL STYLES
+   ============================================================ */
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background: #f4f7fb;
+    color: #1f2937;
+    min-height: 100vh;
+}
+
+
+/* ============================================================
+   LOGIN PAGE
+   ============================================================ */
+
+.login-container {
+    width: 100%;
+    min-height: 100vh;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    padding: 20px;
+}
+
+.login-card {
+    width: 100%;
+    max-width: 450px;
+
+    background: white;
+
+    padding: 40px;
+
+    border-radius: 12px;
+
+    box-shadow:
+        0 10px 30px rgba(0, 0, 0, 0.10);
+
+    text-align: center;
+}
+
+.logo {
+    font-size: 34px;
+    font-weight: bold;
+
+    margin-bottom: 15px;
+
+    color: #1f2937;
+}
+
+.login-card h1 {
+    font-size: 23px;
+    line-height: 1.4;
+
+    margin-bottom: 10px;
+}
+
+.subtitle {
+    color: #6b7280;
+
+    font-size: 15px;
+
+    margin-bottom: 30px;
+}
+
+
+/* ============================================================
+   FORM
+   ============================================================ */
+
+.form-group {
+    text-align: left;
+
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+
+    font-size: 14px;
+    font-weight: bold;
+
+    margin-bottom: 8px;
+
+    color: #374151;
+}
+
+.form-group input {
+    width: 100%;
+
+    padding: 13px 14px;
+
+    border: 1px solid #d1d5db;
+
+    border-radius: 6px;
+
+    font-size: 15px;
+
+    background: white;
+
+    transition:
+        border-color 0.2s,
+        box-shadow 0.2s;
+}
+
+.form-group input:focus {
+    outline: none;
+
+    border-color: #4b5563;
+
+    box-shadow:
+        0 0 0 3px rgba(75, 85, 99, 0.10);
+}
+
+
+/* ============================================================
+   BUTTONS
+   ============================================================ */
+
+button {
+    border: none;
+
+    border-radius: 6px;
+
+    padding: 12px 16px;
+
+    font-size: 15px;
+    font-weight: bold;
+
+    cursor: pointer;
+
+    transition:
+        opacity 0.2s,
+        transform 0.1s;
+}
+
+button:hover {
+    opacity: 0.9;
+}
+
+button:active {
+    transform: scale(0.98);
+}
+
+button:disabled {
+    cursor: not-allowed;
+
+    opacity: 0.6;
+}
+
+
+/* LOGIN BUTTON */
+
+#loginButton {
+    width: 100%;
+
+    background: #1f2937;
+
+    color: white;
+
+    padding: 13px;
+
+    font-size: 16px;
+}
+
+#loginButton:hover {
+    background: #111827;
+}
+
+
+/* ============================================================
+   LOGIN MESSAGE
+   ============================================================ */
+
+#message {
+    margin-top: 20px;
+
+    min-height: 20px;
+
+    font-size: 14px;
+
+    color: #dc2626;
+}
+
+
+/* ============================================================
+   ADMIN / HR DASHBOARD
+   ============================================================ */
+
+.dashboard {
+    display: flex;
+
+    min-height: 100vh;
+}
+
+
+/* ============================================================
+   SIDEBAR
+   ============================================================ */
+
+.sidebar {
+    width: 240px;
+
+    min-height: 100vh;
+
+    background: #1f2937;
+
+    color: white;
+
+    padding: 25px 15px;
+
+    display: flex;
+
+    flex-direction: column;
+}
+
+.sidebar-logo {
+    font-size: 30px;
+
+    font-weight: bold;
+
+    text-align: center;
+
+    margin-bottom: 8px;
+}
+
+.sidebar-title {
+    text-align: center;
+
+    color: #d1d5db;
+
+    font-size: 14px;
+
+    margin-bottom: 30px;
+}
+
+
+/* ============================================================
+   SIDEBAR NAVIGATION
+   ============================================================ */
+
+.sidebar nav {
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 8px;
+}
+
+.sidebar nav button {
+    width: 100%;
+
+    background: transparent;
+
+    color: white;
+
+    text-align: left;
+
+    padding: 12px 14px;
+
+    font-size: 14px;
+
+    font-weight: normal;
+
+    border-radius: 6px;
+}
+
+.sidebar nav button:hover {
+    background: #374151;
+}
+
+
+/* ============================================================
+   LOGOUT BUTTON
+   ============================================================ */
+
+.logout-button {
+    width: 100%;
+
+    margin-top: auto;
+
+    background: #dc2626;
+
+    color: white;
+
+    padding: 12px;
+
+    font-size: 14px;
+}
+
+.logout-button:hover {
+    background: #b91c1c;
+}
+
+
+/* ============================================================
+   MAIN CONTENT
+   ============================================================ */
+
+.main-content {
+    flex: 1;
+
+    min-width: 0;
+
+    padding: 30px;
+
+    background: #f4f7fb;
+}
+
+
+/* ============================================================
+   DASHBOARD HEADER
+   ============================================================ */
+
+.dashboard-header {
+    background: white;
+
+    padding: 25px;
+
+    border-radius: 10px;
+
+    margin-bottom: 25px;
+
+    box-shadow:
+        0 3px 10px rgba(0, 0, 0, 0.05);
+}
+
+.dashboard-header h1 {
+    font-size: 28px;
+
+    margin-bottom: 8px;
+}
+
+.dashboard-header p {
+    color: #6b7280;
+
+    font-size: 15px;
+}
+
+
+/* ============================================================
+   CONTENT SECTIONS
+   ============================================================ */
+
+.content-section {
+    width: 100%;
+}
+
+.content-section h2 {
+    font-size: 22px;
+
+    margin-bottom: 20px;
+}
+
+.content-section > p {
+    color: #6b7280;
+
+    background: white;
+
+    padding: 20px;
+
+    border-radius: 8px;
+}
+
+
+/* ============================================================
+   DASHBOARD CARDS
+   ============================================================ */
+
+.cards {
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, minmax(0, 1fr));
+
+    gap: 20px;
+}
+
+.card {
+    background: white;
+
+    padding: 25px;
+
+    border-radius: 10px;
+
+    box-shadow:
+        0 4px 12px rgba(0, 0, 0, 0.08);
+
+    min-height: 140px;
+}
+
+.card h3 {
+    color: #6b7280;
+
+    font-size: 15px;
+
+    font-weight: normal;
+
+    margin-bottom: 18px;
+}
+
+.card p {
+    color: #1f2937;
+
+    font-size: 32px;
+
+    font-weight: bold;
+}
+
+
+/* ============================================================
+   TABLE STYLING
+   ============================================================ */
+
+table {
+    width: 100%;
+
+    border-collapse: collapse;
+
+    background: white;
+
+    border-radius: 8px;
+
+    overflow: hidden;
+}
+
+th {
+    background: #1f2937;
+
+    color: white;
+
+    padding: 12px;
+
+    text-align: left;
+
+    font-size: 14px;
+}
+
+td {
+    padding: 12px;
+
+    border-bottom: 1px solid #e5e7eb;
+
+    font-size: 14px;
+}
+
+tr:hover td {
+    background: #f9fafb;
+}
+
+
+/* ============================================================
+   GENERAL CARD / PANEL
+   ============================================================ */
+
+.panel {
+    background: white;
+
+    padding: 25px;
+
+    border-radius: 10px;
+
+    box-shadow:
+        0 4px 12px rgba(0, 0, 0, 0.06);
+
+    margin-bottom: 20px;
+}
+
+
+/* ============================================================
+   GENERAL FORM ELEMENTS
+   ============================================================ */
+
+input,
+select,
+textarea {
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+select,
+textarea {
+    width: 100%;
+
+    padding: 12px;
+
+    border: 1px solid #d1d5db;
+
+    border-radius: 6px;
+
+    background: white;
+
+    font-size: 14px;
+}
+
+select:focus,
+textarea:focus {
+    outline: none;
+
+    border-color: #4b5563;
+}
+
+
+/* ============================================================
+   STATUS BADGES
+   ============================================================ */
+
+.status {
+    display: inline-block;
+
+    padding: 5px 10px;
+
+    border-radius: 20px;
+
+    font-size: 12px;
+
+    font-weight: bold;
+}
+
+.status-active {
+    background: #dcfce7;
+
+    color: #166534;
+}
+
+.status-inactive {
+    background: #fee2e2;
+
+    color: #991b1b;
+}
+
+.status-pending {
+    background: #fef3c7;
+
+    color: #92400e;
+}
+
+.status-approved {
+    background: #dcfce7;
+
+    color: #166534;
+}
+
+.status-rejected {
+    background: #fee2e2;
+
+    color: #991b1b;
+}
+
+
+/* ============================================================
+   RESPONSIVE - TABLET
+   ============================================================ */
+
+@media (max-width: 1000px) {
+
+    .cards {
+        grid-template-columns:
+            repeat(2, minmax(0, 1fr));
+    }
+
+}
+
+
+/* ============================================================
+   RESPONSIVE - MOBILE
+   ============================================================ */
+
+@media (max-width: 700px) {
+
+    .dashboard {
+        flex-direction: column;
+    }
+
+    .sidebar {
+        width: 100%;
+
+        min-height: auto;
+
+        padding: 20px;
+    }
+
+    .sidebar-title {
+        margin-bottom: 20px;
+    }
+
+    .sidebar nav {
+        display: grid;
+
+        grid-template-columns:
+            repeat(2, 1fr);
+    }
+
+    .logout-button {
+        margin-top: 20px;
+    }
+
+    .main-content {
+        padding: 20px;
+    }
+
+    .cards {
+        grid-template-columns: 1fr;
+    }
+
+    .dashboard-header h1 {
+        font-size: 23px;
+    }
+
+}
+
+
+/* ============================================================
+   RESPONSIVE - SMALL MOBILE
+   ============================================================ */
+
+@media (max-width: 450px) {
+
+    .login-container {
+        padding: 12px;
+    }
+
+    .login-card {
+        padding: 25px 20px;
+    }
+
+    .login-card h1 {
+        font-size: 20px;
+    }
+
+    .sidebar nav {
+        grid-template-columns: 1fr;
+    }
+
+    .main-content {
+        padding: 15px;
+    }
+
+}
