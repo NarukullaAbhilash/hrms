@@ -1,0 +1,4916 @@
+{
+  "info": {
+    "_postman_id": "1065cff6-4e2e-4fb1-8542-ffa12cc134b0",
+    "name": "HRMS API",
+    "description": "Human Resource Management System API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "57175284",
+    "_collection_link": "https://go.postman.co/collection/57175284-1065cff6-4e2e-4fb1-8542-ffa12cc134b0?source=collection_link"
+  },
+  "item": [
+    {
+      "name": "auth",
+      "item": [
+        {
+          "name": "register",
+          "item": [
+            {
+              "name": "Register",
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"full_name\": \"string\",\n  \"email\": \"w8wNBn@suXDEYgOeZBeGeRMHRxDgEbkEW.yhei\",\n  \"password\": \"stringstring\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/auth/register",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "auth",
+                    "register"
+                  ]
+                }
+              },
+              "response": [
+                {
+                  "name": "Successful Response",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"full_name\": \"string\",\n  \"email\": \"w8wNBn@suXDEYgOeZBeGeRMHRxDgEbkEW.yhei\",\n  \"password\": \"stringstring\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/auth/register",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "auth",
+                        "register"
+                      ]
+                    }
+                  },
+                  "status": "Created",
+                  "code": 201,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "body": "{\n  \"id\": 6037,\n  \"full_name\": \"string\",\n  \"email\": \"7s5hPpK@bdbdobvcBoTTZCSBIRJFheCTyfvsJ.pz\",\n  \"role\": \"string\",\n  \"is_active\": true\n}"
+                },
+                {
+                  "name": "Validation Error",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"full_name\": \"string\",\n  \"email\": \"w8wNBn@suXDEYgOeZBeGeRMHRxDgEbkEW.yhei\",\n  \"password\": \"stringstring\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/auth/register",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "auth",
+                        "register"
+                      ]
+                    }
+                  },
+                  "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+                  "code": 422,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "body": "{\n  \"detail\": [\n    {\n      \"loc\": [\n        \"string\",\n        \"string\"\n      ],\n      \"msg\": \"string\",\n      \"type\": \"string\",\n      \"input\": \"\",\n      \"ctx\": {}\n    },\n    {\n      \"loc\": [\n        1683,\n        \"string\"\n      ],\n      \"msg\": \"string\",\n      \"type\": \"string\",\n      \"input\": \"\",\n      \"ctx\": {}\n    }\n  ]\n}"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "login",
+          "item": [
+            {
+              "name": "Login",
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"email\": \"96fqju48B6Tu@SEorSrnEHBwGcGTSxhHleHJC.jwy\",\n  \"password\": \"string\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/auth/login",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "auth",
+                    "login"
+                  ]
+                }
+              },
+              "response": [
+                {
+                  "name": "Successful Response",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"email\": \"96fqju48B6Tu@SEorSrnEHBwGcGTSxhHleHJC.jwy\",\n  \"password\": \"string\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/auth/login",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "auth",
+                        "login"
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "body": "{\n  \"access_token\": \"string\",\n  \"token_type\": \"string\",\n  \"user\": {\n    \"id\": 7592,\n    \"full_name\": \"string\",\n    \"email\": \"4-6@mcYkgnccCmtqIKEmBDbOJyYV.eag\",\n    \"role\": \"string\",\n    \"is_active\": false\n  }\n}"
+                },
+                {
+                  "name": "Validation Error",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"email\": \"96fqju48B6Tu@SEorSrnEHBwGcGTSxhHleHJC.jwy\",\n  \"password\": \"string\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/auth/login",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "auth",
+                        "login"
+                      ]
+                    }
+                  },
+                  "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+                  "code": 422,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "body": "{\n  \"detail\": [\n    {\n      \"loc\": [\n        \"string\",\n        \"string\"\n      ],\n      \"msg\": \"string\",\n      \"type\": \"string\",\n      \"input\": \"\",\n      \"ctx\": {}\n    },\n    {\n      \"loc\": [\n        1683,\n        \"string\"\n      ],\n      \"msg\": \"string\",\n      \"type\": \"string\",\n      \"input\": \"\",\n      \"ctx\": {}\n    }\n  ]\n}"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "me",
+          "item": [
+            {
+              "name": "Get Me",
+              "request": {
+                "auth": {
+                  "type": "bearer",
+                  "bearer": [
+                    {
+                      "key": "token",
+                      "value": "{{bearerToken}}",
+                      "type": "string"
+                    }
+                  ]
+                },
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/auth/me",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "auth",
+                    "me"
+                  ]
+                }
+              },
+              "response": [
+                {
+                  "name": "Successful Response",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/auth/me",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "auth",
+                        "me"
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "body": "{\n  \"id\": 6037,\n  \"full_name\": \"string\",\n  \"email\": \"7s5hPpK@bdbdobvcBoTTZCSBIRJFheCTyfvsJ.pz\",\n  \"role\": \"string\",\n  \"is_active\": true\n}"
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "auth": {
+        "type": "bearer",
+        "bearer": [
+          {
+            "key": "token",
+            "value": "{{token}}",
+            "type": "string"
+          }
+        ]
+      }
+    },
+    {
+      "name": "rbac",
+      "item": [
+        {
+          "name": "employee",
+          "item": [
+            {
+              "name": "Employee Access",
+              "request": {
+                "auth": {
+                  "type": "bearer",
+                  "bearer": [
+                    {
+                      "key": "token",
+                      "value": "{{bearerToken}}",
+                      "type": "string"
+                    }
+                  ]
+                },
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/rbac/employee",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "rbac",
+                    "employee"
+                  ]
+                }
+              },
+              "response": [
+                {
+                  "name": "Successful Response",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/rbac/employee",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "rbac",
+                        "employee"
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "body": ""
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "admin",
+          "item": [
+            {
+              "name": "Admin Access",
+              "request": {
+                "auth": {
+                  "type": "bearer",
+                  "bearer": [
+                    {
+                      "key": "token",
+                      "value": "{{bearerToken}}",
+                      "type": "string"
+                    }
+                  ]
+                },
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/rbac/admin",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "rbac",
+                    "admin"
+                  ]
+                }
+              },
+              "response": [
+                {
+                  "name": "Successful Response",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/rbac/admin",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "rbac",
+                        "admin"
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "body": ""
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "hr",
+          "item": [
+            {
+              "name": "Hr Access",
+              "request": {
+                "auth": {
+                  "type": "bearer",
+                  "bearer": [
+                    {
+                      "key": "token",
+                      "value": "{{bearerToken}}",
+                      "type": "string"
+                    }
+                  ]
+                },
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/rbac/hr",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "rbac",
+                    "hr"
+                  ]
+                }
+              },
+              "response": [
+                {
+                  "name": "Successful Response",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/rbac/hr",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "rbac",
+                        "hr"
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "body": ""
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "admin-or-hr",
+          "item": [
+            {
+              "name": "Admin Or Hr Access",
+              "request": {
+                "auth": {
+                  "type": "bearer",
+                  "bearer": [
+                    {
+                      "key": "token",
+                      "value": "{{bearerToken}}",
+                      "type": "string"
+                    }
+                  ]
+                },
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/rbac/admin-or-hr",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "rbac",
+                    "admin-or-hr"
+                  ]
+                }
+              },
+              "response": [
+                {
+                  "name": "Successful Response",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/rbac/admin-or-hr",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "rbac",
+                        "admin-or-hr"
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "body": ""
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "users",
+      "item": [
+        {
+          "name": "{user_id}",
+          "item": [
+            {
+              "name": "role",
+              "item": [
+                {
+                  "name": "Update User Role",
+                  "request": {
+                    "auth": {
+                      "type": "bearer",
+                      "bearer": [
+                        {
+                          "key": "token",
+                          "value": "{{bearerToken}}",
+                          "type": "string"
+                        }
+                      ]
+                    },
+                    "method": "PATCH",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/users/:user_id/role?role=string",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "users",
+                        ":user_id",
+                        "role"
+                      ],
+                      "query": [
+                        {
+                          "key": "role",
+                          "value": "string"
+                        }
+                      ],
+                      "variable": [
+                        {
+                          "key": "user_id",
+                          "value": "6029"
+                        }
+                      ]
+                    }
+                  },
+                  "response": [
+                    {
+                      "name": "Successful Response",
+                      "originalRequest": {
+                        "method": "PATCH",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/users/:user_id/role?role=string",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "users",
+                            ":user_id",
+                            "role"
+                          ],
+                          "query": [
+                            {
+                              "key": "role",
+                              "value": "string"
+                            }
+                          ],
+                          "variable": [
+                            {
+                              "key": "user_id",
+                              "value": "6029"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "body": ""
+                    },
+                    {
+                      "name": "Validation Error",
+                      "originalRequest": {
+                        "method": "PATCH",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/users/:user_id/role?role=string",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "users",
+                            ":user_id",
+                            "role"
+                          ],
+                          "query": [
+                            {
+                              "key": "role",
+                              "value": "string"
+                            }
+                          ],
+                          "variable": [
+                            {
+                              "key": "user_id",
+                              "value": "6029"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+                      "code": 422,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "body": "{\n  \"detail\": [\n    {\n      \"loc\": [\n        \"string\",\n        \"string\"\n      ],\n      \"msg\": \"string\",\n      \"type\": \"string\",\n      \"input\": \"\",\n      \"ctx\": {}\n    },\n    {\n      \"loc\": [\n        1683,\n        \"string\"\n      ],\n      \"msg\": \"string\",\n      \"type\": \"string\",\n      \"input\": \"\",\n      \"ctx\": {}\n    }\n  ]\n}"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "employees",
+      "item": [
+        {
+          "name": "me",
+          "item": [
+            {
+              "name": "Get My Employee Profile",
+              "request": {
+                "auth": {
+                  "type": "bearer",
+                  "bearer": [
+                    {
+                      "key": "token",
+                      "value": "{{bearerToken}}",
+                      "type": "string"
+                    }
+                  ]
+                },
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/employees/me",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "employees",
+                    "me"
+                  ]
+                }
+              },
+              "response": [
+                {
+                  "name": "Successful Response",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/employees/me",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "employees",
+                        "me"
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "body": "{\n  \"id\": 2583,\n  \"employee_code\": \"string\",\n  \"full_name\": \"string\",\n  \"email\": \"vY9sCdOWelWN@soT.csyn\",\n  \"phone\": \"string\",\n  \"department\": \"string\",\n  \"designation\": \"string\",\n  \"joining_date\": \"2024-12-17\",\n  \"salary\": 4533.345858281359,\n  \"document\": \"string\",\n  \"is_active\": true,\n  \"created_at\": \"2017-10-11T12:58:28.726Z\"\n}"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "{employee_id}",
+          "item": [
+            {
+              "name": "deactivate",
+              "item": [
+                {
+                  "name": "Deactivate Employee",
+                  "request": {
+                    "auth": {
+                      "type": "bearer",
+                      "bearer": [
+                        {
+                          "key": "token",
+                          "value": "{{bearerToken}}",
+                          "type": "string"
+                        }
+                      ]
+                    },
+                    "method": "PATCH",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/employees/:employee_id/deactivate",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "employees",
+                        ":employee_id",
+                        "deactivate"
+                      ],
+                      "variable": [
+                        {
+                          "key": "employee_id",
+                          "value": "6740"
+                        }
+                      ]
+                    }
+                  },
+                  "response": [
+                    {
+                      "name": "Successful Response",
+                      "originalRequest": {
+                        "method": "PATCH",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/employees/:employee_id/deactivate",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "employees",
+                            ":employee_id",
+                            "deactivate"
+                          ],
+                          "variable": [
+                            {
+                              "key": "employee_id",
+                              "value": "6740"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "body": "{\n  \"id\": 2583,\n  \"employee_code\": \"string\",\n  \"full_name\": \"string\",\n  \"email\": \"vY9sCdOWelWN@soT.csyn\",\n  \"phone\": \"string\",\n  \"department\": \"string\",\n  \"designation\": \"string\",\n  \"joining_date\": \"2024-12-17\",\n  \"salary\": 4533.345858281359,\n  \"document\": \"string\",\n  \"is_active\": true,\n  \"created_at\": \"2017-10-11T12:58:28.726Z\"\n}"
+                    },
+                    {
+                      "name": "Validation Error",
+                      "originalRequest": {
+                        "method": "PATCH",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/employees/:employee_id/deactivate",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "employees",
+                            ":employee_id",
+                            "deactivate"
+                          ],
+                          "variable": [
+                            {
+                              "key": "employee_id",
+                              "value": "6740"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+                      "code": 422,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "body": "{\n  \"detail\": [\n    {\n      \"loc\": [\n        \"string\",\n        \"string\"\n      ],\n      \"msg\": \"string\",\n      \"type\": \"string\",\n      \"input\": \"\",\n      \"ctx\": {}\n    },\n    {\n      \"loc\": [\n        1683,\n        \"string\"\n      ],\n      \"msg\": \"string\",\n      \"type\": \"string\",\n      \"input\": \"\",\n      \"ctx\": {}\n    }\n  ]\n}"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "name": "activate",
+              "item": [
+                {
+                  "name": "Activate Employee",
+                  "request": {
+                    "auth": {
+                      "type": "bearer",
+                      "bearer": [
+                        {
+                          "key": "token",
+                          "value": "{{bearerToken}}",
+                          "type": "string"
+                        }
+                      ]
+                    },
+                    "method": "PATCH",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/employees/:employee_id/activate",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "employees",
+                        ":employee_id",
+                        "activate"
+                      ],
+                      "variable": [
+                        {
+                          "key": "employee_id",
+                          "value": "6740"
+                        }
+                      ]
+                    }
+                  },
+                  "response": [
+                    {
+                      "name": "Successful Response",
+                      "originalRequest": {
+                        "method": "PATCH",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/employees/:employee_id/activate",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "employees",
+                            ":employee_id",
+                            "activate"
+                          ],
+                          "variable": [
+                            {
+                              "key": "employee_id",
+                              "value": "6740"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "body": "{\n  \"id\": 2583,\n  \"employee_code\": \"string\",\n  \"full_name\": \"string\",\n  \"email\": \"vY9sCdOWelWN@soT.csyn\",\n  \"phone\": \"string\",\n  \"department\": \"string\",\n  \"designation\": \"string\",\n  \"joining_date\": \"2024-12-17\",\n  \"salary\": 4533.345858281359,\n  \"document\": \"string\",\n  \"is_active\": true,\n  \"created_at\": \"2017-10-11T12:58:28.726Z\"\n}"
+                    },
+                    {
+                      "name": "Validation Error",
+                      "originalRequest": {
+                        "method": "PATCH",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/employees/:employee_id/activate",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "employees",
+                            ":employee_id",
+                            "activate"
+                          ],
+                          "variable": [
+                            {
+                              "key": "employee_id",
+                              "value": "6740"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+                      "code": 422,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "body": "{\n  \"detail\": [\n    {\n      \"loc\": [\n        \"string\",\n        \"string\"\n      ],\n      \"msg\": \"string\",\n      \"type\": \"string\",\n      \"input\": \"\",\n      \"ctx\": {}\n    },\n    {\n      \"loc\": [\n        1683,\n        \"string\"\n      ],\n      \"msg\": \"string\",\n      \"type\": \"string\",\n      \"input\": \"\",\n      \"ctx\": {}\n    }\n  ]\n}"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "name": "document",
+              "item": [
+                {
+                  "name": "Upload Employee Document",
+                  "request": {
+                    "auth": {
+                      "type": "bearer",
+                      "bearer": [
+                        {
+                          "key": "token",
+                          "value": "{{bearerToken}}",
+                          "type": "string"
+                        }
+                      ]
+                    },
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "multipart/form-data"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "formdata",
+                      "formdata": [
+                        {
+                          "key": "file",
+                          "value": "string",
+                          "type": "text"
+                        }
+                      ]
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/employees/:employee_id/document",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "employees",
+                        ":employee_id",
+                        "document"
+                      ],
+                      "variable": [
+                        {
+                          "key": "employee_id",
+                          "value": "6740"
+                        }
+                      ]
+                    }
+                  },
+                  "response": [
+                    {
+                      "name": "Successful Response",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "multipart/form-data"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "formdata",
+                          "formdata": [
+                            {
+                              "key": "file",
+                              "value": "string",
+                              "type": "text"
+                            }
+                          ]
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/employees/:employee_id/document",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "employees",
+                            ":employee_id",
+                            "document"
+                          ],
+                          "variable": [
+                            {
+                              "key": "employee_id",
+                              "value": "6740"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "body": "{\n  \"id\": 2583,\n  \"employee_code\": \"string\",\n  \"full_name\": \"string\",\n  \"email\": \"vY9sCdOWelWN@soT.csyn\",\n  \"phone\": \"string\",\n  \"department\": \"string\",\n  \"designation\": \"string\",\n  \"joining_date\": \"2024-12-17\",\n  \"salary\": 4533.345858281359,\n  \"document\": \"string\",\n  \"is_active\": true,\n  \"created_at\": \"2017-10-11T12:58:28.726Z\"\n}"
+                    },
+                    {
+                      "name": "Validation Error",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "multipart/form-data"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "formdata",
+                          "formdata": [
+                            {
+                              "key": "file",
+                              "value": "string",
+                              "type": "text"
+                            }
+                          ]
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/employees/:employee_id/document",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "employees",
+                            ":employee_id",
+                            "document"
+                          ],
+                          "variable": [
+                            {
+                              "key": "employee_id",
+                              "value": "6740"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+                      "code": 422,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "body": "{\n  \"detail\": [\n    {\n      \"loc\": [\n        \"string\",\n        \"string\"\n      ],\n      \"msg\": \"string\",\n      \"type\": \"string\",\n      \"input\": \"\",\n      \"ctx\": {}\n    },\n    {\n      \"loc\": [\n        1683,\n        \"string\"\n      ],\n      \"msg\": \"string\",\n      \"type\": \"string\",\n      \"input\": \"\",\n      \"ctx\": {}\n    }\n  ]\n}"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "name": "Get Employee",
+              "request": {
+                "auth": {
+                  "type": "bearer",
+                  "bearer": [
+                    {
+                      "key": "token",
+                      "value": "{{bearerToken}}",
+                      "type": "string"
+                    }
+                  ]
+                },
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/employees/:employee_id",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "employees",
+                    ":employee_id"
+                  ],
+                  "variable": [
+                    {
+                      "key": "employee_id",
+                      "value": "6740"
+                    }
+                  ]
+                }
+              },
+              "response": [
+                {
+                  "name": "Successful Response",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/employees/:employee_id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "employees",
+                        ":employee_id"
+                      ],
+                      "variable": [
+                        {
+                          "key": "employee_id",
+                          "value": "6740"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "body": "{\n  \"id\": 2583,\n  \"employee_code\": \"string\",\n  \"full_name\": \"string\",\n  \"email\": \"vY9sCdOWelWN@soT.csyn\",\n  \"phone\": \"string\",\n  \"department\": \"string\",\n  \"designation\": \"string\",\n  \"joining_date\": \"2024-12-17\",\n  \"salary\": 4533.345858281359,\n  \"document\": \"string\",\n  \"is_active\": true,\n  \"created_at\": \"2017-10-11T12:58:28.726Z\"\n}"
+                },
+                {
+                  "name": "Validation Error",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/employees/:employee_id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "employees",
+                        ":employee_id"
+                      ],
+                      "variable": [
+                        {
+                          "key": "employee_id",
+                          "value": "6740"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+                  "code": 422,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "body": "{\n  \"detail\": [\n    {\n      \"loc\": [\n        \"string\",\n        \"string\"\n      ],\n      \"msg\": \"string\",\n      \"type\": \"string\",\n      \"input\": \"\",\n      \"ctx\": {}\n    },\n    {\n      \"loc\": [\n        1683,\n        \"string\"\n      ],\n      \"msg\": \"string\",\n      \"type\": \"string\",\n      \"input\": \"\",\n      \"ctx\": {}\n    }\n  ]\n}"
+                }
+              ]
+            },
+            {
+              "name": "Update Employee",
+              "request": {
+                "auth": {
+                  "type": "bearer",
+                  "bearer": [
+                    {
+                      "key": "token",
+                      "value": "{{bearerToken}}",
+                      "type": "string"
+                    }
+                  ]
+                },
+                "method": "PUT",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"full_name\": null,\n  \"email\": null,\n  \"phone\": \"string\",\n  \"department\": null,\n  \"designation\": null,\n  \"joining_date\": \"1999-03-30\",\n  \"salary\": null\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/employees/:employee_id",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "employees",
+                    ":employee_id"
+                  ],
+                  "variable": [
+                    {
+                      "key": "employee_id",
+                      "value": "6740"
+                    }
+                  ]
+                }
+              },
+              "response": [
+                {
+                  "name": "Successful Response",
+                  "originalRequest": {
+                    "method": "PUT",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"full_name\": null,\n  \"email\": null,\n  \"phone\": \"string\",\n  \"department\": null,\n  \"designation\": null,\n  \"joining_date\": \"1999-03-30\",\n  \"salary\": null\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/employees/:employee_id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "employees",
+                        ":employee_id"
+                      ],
+                      "variable": [
+                        {
+                          "key": "employee_id",
+                          "value": "6740"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "body": "{\n  \"id\": 2583,\n  \"employee_code\": \"string\",\n  \"full_name\": \"string\",\n  \"email\": \"vY9sCdOWelWN@soT.csyn\",\n  \"phone\": \"string\",\n  \"department\": \"string\",\n  \"designation\": \"string\",\n  \"joining_date\": \"2024-12-17\",\n  \"salary\": 4533.345858281359,\n  \"document\": \"string\",\n  \"is_active\": true,\n  \"created_at\": \"2017-10-11T12:58:28.726Z\"\n}"
+                },
+                {
+                  "name": "Validation Error",
+                  "originalRequest": {
+                    "method": "PUT",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"full_name\": null,\n  \"email\": null,\n  \"phone\": \"string\",\n  \"department\": null,\n  \"designation\": null,\n  \"joining_date\": \"1999-03-30\",\n  \"salary\": null\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/employees/:employee_id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "employees",
+                        ":employee_id"
+                      ],
+                      "variable": [
+                        {
+                          "key": "employee_id",
+                          "value": "6740"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+                  "code": 422,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "body": "{\n  \"detail\": [\n    {\n      \"loc\": [\n        \"string\",\n        \"string\"\n      ],\n      \"msg\": \"string\",\n      \"type\": \"string\",\n      \"input\": \"\",\n      \"ctx\": {}\n    },\n    {\n      \"loc\": [\n        1683,\n        \"string\"\n      ],\n      \"msg\": \"string\",\n      \"type\": \"string\",\n      \"input\": \"\",\n      \"ctx\": {}\n    }\n  ]\n}"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Get Employees",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{bearerToken}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/employees",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "employees"
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "Successful Response",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: bearer",
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/employees",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "employees"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "body": "[\n  {\n    \"id\": 7667,\n    \"employee_code\": \"string\",\n    \"full_name\": \"string\",\n    \"email\": \"cn1KC@xCHd.bts\",\n    \"phone\": \"string\",\n    \"department\": \"string\",\n    \"designation\": \"string\",\n    \"joining_date\": \"1974-01-24\",\n    \"salary\": 3790.5375440567113,\n    \"document\": \"string\",\n    \"is_active\": true,\n    \"created_at\": \"2009-05-02T16:34:20.078Z\"\n  },\n  {\n    \"id\": 6254,\n    \"employee_code\": \"string\",\n    \"full_name\": \"string\",\n    \"email\": \"pWHiK-B@AiEthikacObFAgeHnVTgDsqYBT.hstp\",\n    \"phone\": \"string\",\n    \"department\": \"string\",\n    \"designation\": \"string\",\n    \"joining_date\": \"1978-02-04\",\n    \"salary\": 5285.018102959431,\n    \"document\": \"string\",\n    \"is_active\": false,\n    \"created_at\": \"1982-10-24T21:46:08.484Z\"\n  }\n]"
+            }
+          ]
+        },
+        {
+          "name": "Create Employee",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{bearerToken}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"employee_code\": \"string\",\n  \"full_name\": \"string\",\n  \"email\": \"C7M8AL@GYZLHHP.af\",\n  \"department\": \"string\",\n  \"designation\": \"string\",\n  \"joining_date\": \"1968-02-21\",\n  \"salary\": 4784.569127789265,\n  \"phone\": null\n}",
+              "options": {
+                "raw": {
+                  "headerFamily": "json",
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/employees",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "employees"
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "Successful Response",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: bearer",
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"employee_code\": \"string\",\n  \"full_name\": \"string\",\n  \"email\": \"C7M8AL@GYZLHHP.af\",\n  \"department\": \"string\",\n  \"designation\": \"string\",\n  \"joining_date\": \"1968-02-21\",\n  \"salary\": 4784.569127789265,\n  \"phone\": null\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/employees",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "employees"
+                  ]
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n  \"id\": 2583,\n  \"employee_code\": \"string\",\n  \"full_name\": \"string\",\n  \"email\": \"vY9sCdOWelWN@soT.csyn\",\n  \"phone\": \"string\",\n  \"department\": \"string\",\n  \"designation\": \"string\",\n  \"joining_date\": \"2024-12-17\",\n  \"salary\": 4533.345858281359,\n  \"document\": \"string\",\n  \"is_active\": true,\n  \"created_at\": \"2017-10-11T12:58:28.726Z\"\n}"
+            },
+            {
+              "name": "Validation Error",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: bearer",
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"employee_code\": \"string\",\n  \"full_name\": \"string\",\n  \"email\": \"C7M8AL@GYZLHHP.af\",\n  \"department\": \"string\",\n  \"designation\": \"string\",\n  \"joining_date\": \"1968-02-21\",\n  \"salary\": 4784.569127789265,\n  \"phone\": null\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/employees",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "employees"
+                  ]
+                }
+              },
+              "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+              "code": 422,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n  \"detail\": [\n    {\n      \"loc\": [\n        \"string\",\n        \"string\"\n      ],\n      \"msg\": \"string\",\n      \"type\": \"string\",\n      \"input\": \"\",\n      \"ctx\": {}\n    },\n    {\n      \"loc\": [\n        1683,\n        \"string\"\n      ],\n      \"msg\": \"string\",\n      \"type\": \"string\",\n      \"input\": \"\",\n      \"ctx\": {}\n    }\n  ]\n}"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "attendance",
+      "item": [
+        {
+          "name": "check-in",
+          "item": [
+            {
+              "name": "Check In",
+              "request": {
+                "auth": {
+                  "type": "bearer",
+                  "bearer": [
+                    {
+                      "key": "token",
+                      "value": "{{bearerToken}}",
+                      "type": "string"
+                    }
+                  ]
+                },
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/attendance/check-in",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "attendance",
+                    "check-in"
+                  ]
+                }
+              },
+              "response": [
+                {
+                  "name": "Successful Response",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/attendance/check-in",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "attendance",
+                        "check-in"
+                      ]
+                    }
+                  },
+                  "status": "Created",
+                  "code": 201,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "body": "{\n  \"id\": 5676,\n  \"employee_id\": 6882,\n  \"attendance_date\": \"1984-11-17\",\n  \"check_in\": null,\n  \"check_out\": \"2026-07-10T19:31:18.594Z\",\n  \"working_hours\": 2325.959052737121,\n  \"created_at\": \"2013-01-07T09:01:23.427Z\"\n}"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "check-out",
+          "item": [
+            {
+              "name": "Check Out",
+              "request": {
+                "auth": {
+                  "type": "bearer",
+                  "bearer": [
+                    {
+                      "key": "token",
+                      "value": "{{bearerToken}}",
+                      "type": "string"
+                    }
+                  ]
+                },
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/attendance/check-out",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "attendance",
+                    "check-out"
+                  ]
+                }
+              },
+              "response": [
+                {
+                  "name": "Successful Response",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/attendance/check-out",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "attendance",
+                        "check-out"
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "body": "{\n  \"id\": 5676,\n  \"employee_id\": 6882,\n  \"attendance_date\": \"1984-11-17\",\n  \"check_in\": null,\n  \"check_out\": \"2026-07-10T19:31:18.594Z\",\n  \"working_hours\": 2325.959052737121,\n  \"created_at\": \"2013-01-07T09:01:23.427Z\"\n}"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "my",
+          "item": [
+            {
+              "name": "Get My Attendance",
+              "request": {
+                "auth": {
+                  "type": "bearer",
+                  "bearer": [
+                    {
+                      "key": "token",
+                      "value": "{{bearerToken}}",
+                      "type": "string"
+                    }
+                  ]
+                },
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/attendance/my",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "attendance",
+                    "my"
+                  ]
+                }
+              },
+              "response": [
+                {
+                  "name": "Successful Response",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/attendance/my",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "attendance",
+                        "my"
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "body": "[\n  {\n    \"id\": 2800,\n    \"employee_id\": 3436,\n    \"attendance_date\": \"1986-01-04\",\n    \"check_in\": \"2006-04-10T05:28:15.752Z\",\n    \"check_out\": \"1962-12-26T16:22:15.046Z\",\n    \"working_hours\": 9545.805939865837,\n    \"created_at\": \"1981-09-23T14:06:53.678Z\"\n  },\n  {\n    \"id\": 5403,\n    \"employee_id\": 3669,\n    \"attendance_date\": \"1975-06-07\",\n    \"check_in\": \"2015-02-01T04:29:21.736Z\",\n    \"check_out\": \"1997-03-25T21:48:30.112Z\",\n    \"working_hours\": 9298.74216445152,\n    \"created_at\": \"1953-07-14T03:00:05.468Z\"\n  }\n]"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "employee",
+          "item": [
+            {
+              "name": "{employee_id}",
+              "item": [
+                {
+                  "name": "Get Employee Attendance",
+                  "request": {
+                    "auth": {
+                      "type": "bearer",
+                      "bearer": [
+                        {
+                          "key": "token",
+                          "value": "{{bearerToken}}",
+                          "type": "string"
+                        }
+                      ]
+                    },
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/attendance/employee/:employee_id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "attendance",
+                        "employee",
+                        ":employee_id"
+                      ],
+                      "variable": [
+                        {
+                          "key": "employee_id",
+                          "value": "6740"
+                        }
+                      ]
+                    }
+                  },
+                  "response": [
+                    {
+                      "name": "Successful Response",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/attendance/employee/:employee_id",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "attendance",
+                            "employee",
+                            ":employee_id"
+                          ],
+                          "variable": [
+                            {
+                              "key": "employee_id",
+                              "value": "6740"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "body": "[\n  {\n    \"id\": 955,\n    \"employee_id\": 6751,\n    \"attendance_date\": \"1948-02-28\",\n    \"check_in\": \"1977-05-10T14:40:06.445Z\",\n    \"check_out\": \"1985-08-01T23:12:32.697Z\",\n    \"working_hours\": 3492.4433948623437,\n    \"created_at\": \"1972-11-23T22:14:22.409Z\"\n  },\n  {\n    \"id\": 3643,\n    \"employee_id\": 2567,\n    \"attendance_date\": \"1954-04-30\",\n    \"check_in\": \"2012-09-20T08:02:13.694Z\",\n    \"check_out\": \"1963-06-08T23:38:16.067Z\",\n    \"working_hours\": 1407.1248666790548,\n    \"created_at\": \"2024-09-03T02:01:23.529Z\"\n  }\n]"
+                    },
+                    {
+                      "name": "Validation Error",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/attendance/employee/:employee_id",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "attendance",
+                            "employee",
+                            ":employee_id"
+                          ],
+                          "variable": [
+                            {
+                              "key": "employee_id",
+                              "value": "6740"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+                      "code": 422,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "body": "{\n  \"detail\": [\n    {\n      \"loc\": [\n        \"string\",\n        \"string\"\n      ],\n      \"msg\": \"string\",\n      \"type\": \"string\",\n      \"input\": \"\",\n      \"ctx\": {}\n    },\n    {\n      \"loc\": [\n        1683,\n        \"string\"\n      ],\n      \"msg\": \"string\",\n      \"type\": \"string\",\n      \"input\": \"\",\n      \"ctx\": {}\n    }\n  ]\n}"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "summary",
+          "item": [
+            {
+              "name": "{employee_id}",
+              "item": [
+                {
+                  "name": "Attendance Summary",
+                  "request": {
+                    "auth": {
+                      "type": "bearer",
+                      "bearer": [
+                        {
+                          "key": "token",
+                          "value": "{{bearerToken}}",
+                          "type": "string"
+                        }
+                      ]
+                    },
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/attendance/summary/:employee_id?month=7484&year=4633",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "attendance",
+                        "summary",
+                        ":employee_id"
+                      ],
+                      "query": [
+                        {
+                          "key": "month",
+                          "value": "7484"
+                        },
+                        {
+                          "key": "year",
+                          "value": "4633"
+                        }
+                      ],
+                      "variable": [
+                        {
+                          "key": "employee_id",
+                          "value": "6740"
+                        }
+                      ]
+                    }
+                  },
+                  "response": [
+                    {
+                      "name": "Successful Response",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/attendance/summary/:employee_id?month=7484&year=4633",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "attendance",
+                            "summary",
+                            ":employee_id"
+                          ],
+                          "query": [
+                            {
+                              "key": "month",
+                              "value": "7484"
+                            },
+                            {
+                              "key": "year",
+                              "value": "4633"
+                            }
+                          ],
+                          "variable": [
+                            {
+                              "key": "employee_id",
+                              "value": "6740"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "body": "{\n  \"employee_id\": 8712,\n  \"month\": 4915,\n  \"year\": 7581,\n  \"total_days\": 7790,\n  \"present_days\": 1442,\n  \"absent_days\": 9963,\n  \"total_working_hours\": 3092.885863472672\n}"
+                    },
+                    {
+                      "name": "Validation Error",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/attendance/summary/:employee_id?month=7484&year=4633",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "attendance",
+                            "summary",
+                            ":employee_id"
+                          ],
+                          "query": [
+                            {
+                              "key": "month",
+                              "value": "7484"
+                            },
+                            {
+                              "key": "year",
+                              "value": "4633"
+                            }
+                          ],
+                          "variable": [
+                            {
+                              "key": "employee_id",
+                              "value": "6740"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+                      "code": 422,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "body": "{\n  \"detail\": [\n    {\n      \"loc\": [\n        \"string\",\n        \"string\"\n      ],\n      \"msg\": \"string\",\n      \"type\": \"string\",\n      \"input\": \"\",\n      \"ctx\": {}\n    },\n    {\n      \"loc\": [\n        1683,\n        \"string\"\n      ],\n      \"msg\": \"string\",\n      \"type\": \"string\",\n      \"input\": \"\",\n      \"ctx\": {}\n    }\n  ]\n}"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "leaves",
+      "item": [
+        {
+          "name": "my",
+          "item": [
+            {
+              "name": "Get My Leaves",
+              "request": {
+                "auth": {
+                  "type": "bearer",
+                  "bearer": [
+                    {
+                      "key": "token",
+                      "value": "{{bearerToken}}",
+                      "type": "string"
+                    }
+                  ]
+                },
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/leaves/my",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "leaves",
+                    "my"
+                  ]
+                }
+              },
+              "response": [
+                {
+                  "name": "Successful Response",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/leaves/my",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "leaves",
+                        "my"
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "body": "[\n  {\n    \"id\": 8874,\n    \"employee_id\": 1144,\n    \"leave_type\": \"string\",\n    \"start_date\": \"2022-10-02\",\n    \"end_date\": \"1996-01-14\",\n    \"total_days\": 124.13953556988488,\n    \"reason\": \"string\",\n    \"status\": \"string\",\n    \"approved_by\": 2451,\n    \"applied_at\": \"1960-03-08T21:25:19.909Z\",\n    \"approved_at\": \"1967-04-15T06:17:28.307Z\"\n  },\n  {\n    \"id\": 990,\n    \"employee_id\": 880,\n    \"leave_type\": \"string\",\n    \"start_date\": \"1988-07-04\",\n    \"end_date\": \"2015-01-17\",\n    \"total_days\": 159.65987618102417,\n    \"reason\": \"string\",\n    \"status\": \"string\",\n    \"approved_by\": 4019,\n    \"applied_at\": \"1972-06-21T12:49:15.543Z\",\n    \"approved_at\": \"1991-09-24T18:35:24.300Z\"\n  }\n]"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "balance",
+          "item": [
+            {
+              "name": "Get My Leave Balance",
+              "request": {
+                "auth": {
+                  "type": "bearer",
+                  "bearer": [
+                    {
+                      "key": "token",
+                      "value": "{{bearerToken}}",
+                      "type": "string"
+                    }
+                  ]
+                },
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/leaves/balance",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "leaves",
+                    "balance"
+                  ]
+                }
+              },
+              "response": [
+                {
+                  "name": "Successful Response",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/leaves/balance",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "leaves",
+                        "balance"
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "body": "{\n  \"employee_id\": 846,\n  \"casual_leave\": 1511.7180468563008,\n  \"sick_leave\": 6793.937273572208,\n  \"earned_leave\": 2503.8412195368933,\n  \"lop_days\": 7912.396977523975\n}"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "{leave_id}",
+          "item": [
+            {
+              "name": "approve",
+              "item": [
+                {
+                  "name": "Approve Leave",
+                  "request": {
+                    "auth": {
+                      "type": "bearer",
+                      "bearer": [
+                        {
+                          "key": "token",
+                          "value": "{{bearerToken}}",
+                          "type": "string"
+                        }
+                      ]
+                    },
+                    "method": "PATCH",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/leaves/:leave_id/approve",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "leaves",
+                        ":leave_id",
+                        "approve"
+                      ],
+                      "variable": [
+                        {
+                          "key": "leave_id",
+                          "value": "8679"
+                        }
+                      ]
+                    }
+                  },
+                  "response": [
+                    {
+                      "name": "Successful Response",
+                      "originalRequest": {
+                        "method": "PATCH",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/leaves/:leave_id/approve",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "leaves",
+                            ":leave_id",
+                            "approve"
+                          ],
+                          "variable": [
+                            {
+                              "key": "leave_id",
+                              "value": "8679"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "body": "{\n  \"id\": 3537,\n  \"employee_id\": 4510,\n  \"leave_type\": \"string\",\n  \"start_date\": \"2012-09-28\",\n  \"end_date\": \"2018-12-08\",\n  \"total_days\": 8338.405204596029,\n  \"reason\": \"string\",\n  \"status\": \"string\",\n  \"approved_by\": 4174,\n  \"applied_at\": \"1982-04-11T00:07:08.733Z\",\n  \"approved_at\": \"1958-01-10T04:13:10.901Z\"\n}"
+                    },
+                    {
+                      "name": "Validation Error",
+                      "originalRequest": {
+                        "method": "PATCH",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/leaves/:leave_id/approve",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "leaves",
+                            ":leave_id",
+                            "approve"
+                          ],
+                          "variable": [
+                            {
+                              "key": "leave_id",
+                              "value": "8679"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+                      "code": 422,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "body": "{\n  \"detail\": [\n    {\n      \"loc\": [\n        \"string\",\n        \"string\"\n      ],\n      \"msg\": \"string\",\n      \"type\": \"string\",\n      \"input\": \"\",\n      \"ctx\": {}\n    },\n    {\n      \"loc\": [\n        1683,\n        \"string\"\n      ],\n      \"msg\": \"string\",\n      \"type\": \"string\",\n      \"input\": \"\",\n      \"ctx\": {}\n    }\n  ]\n}"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "name": "reject",
+              "item": [
+                {
+                  "name": "Reject Leave",
+                  "request": {
+                    "auth": {
+                      "type": "bearer",
+                      "bearer": [
+                        {
+                          "key": "token",
+                          "value": "{{bearerToken}}",
+                          "type": "string"
+                        }
+                      ]
+                    },
+                    "method": "PATCH",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/leaves/:leave_id/reject",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "leaves",
+                        ":leave_id",
+                        "reject"
+                      ],
+                      "variable": [
+                        {
+                          "key": "leave_id",
+                          "value": "8679"
+                        }
+                      ]
+                    }
+                  },
+                  "response": [
+                    {
+                      "name": "Successful Response",
+                      "originalRequest": {
+                        "method": "PATCH",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/leaves/:leave_id/reject",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "leaves",
+                            ":leave_id",
+                            "reject"
+                          ],
+                          "variable": [
+                            {
+                              "key": "leave_id",
+                              "value": "8679"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "body": "{\n  \"id\": 3537,\n  \"employee_id\": 4510,\n  \"leave_type\": \"string\",\n  \"start_date\": \"2012-09-28\",\n  \"end_date\": \"2018-12-08\",\n  \"total_days\": 8338.405204596029,\n  \"reason\": \"string\",\n  \"status\": \"string\",\n  \"approved_by\": 4174,\n  \"applied_at\": \"1982-04-11T00:07:08.733Z\",\n  \"approved_at\": \"1958-01-10T04:13:10.901Z\"\n}"
+                    },
+                    {
+                      "name": "Validation Error",
+                      "originalRequest": {
+                        "method": "PATCH",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/leaves/:leave_id/reject",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "leaves",
+                            ":leave_id",
+                            "reject"
+                          ],
+                          "variable": [
+                            {
+                              "key": "leave_id",
+                              "value": "8679"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+                      "code": 422,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "body": "{\n  \"detail\": [\n    {\n      \"loc\": [\n        \"string\",\n        \"string\"\n      ],\n      \"msg\": \"string\",\n      \"type\": \"string\",\n      \"input\": \"\",\n      \"ctx\": {}\n    },\n    {\n      \"loc\": [\n        1683,\n        \"string\"\n      ],\n      \"msg\": \"string\",\n      \"type\": \"string\",\n      \"input\": \"\",\n      \"ctx\": {}\n    }\n  ]\n}"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Get All Leaves",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{bearerToken}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/leaves",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "leaves"
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "Successful Response",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: bearer",
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/leaves",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "leaves"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "body": "[\n  {\n    \"id\": 1426,\n    \"employee_id\": 5436,\n    \"leave_type\": \"string\",\n    \"start_date\": \"1971-07-19\",\n    \"end_date\": \"1965-11-05\",\n    \"total_days\": 2132.6970713093065,\n    \"reason\": \"string\",\n    \"status\": \"string\",\n    \"approved_by\": 5786,\n    \"applied_at\": \"1991-12-02T17:42:08.371Z\",\n    \"approved_at\": \"2017-01-11T05:02:19.760Z\"\n  },\n  {\n    \"id\": 9004,\n    \"employee_id\": 1427,\n    \"leave_type\": \"string\",\n    \"start_date\": \"1951-08-31\",\n    \"end_date\": \"2002-03-25\",\n    \"total_days\": 4694.930892086862,\n    \"reason\": \"string\",\n    \"status\": \"string\",\n    \"approved_by\": 9250,\n    \"applied_at\": \"1994-08-22T13:27:34.655Z\",\n    \"approved_at\": \"1990-09-29T19:34:55.356Z\"\n  }\n]"
+            }
+          ]
+        },
+        {
+          "name": "Apply Leave",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{bearerToken}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"leave_type\": \"string\",\n  \"start_date\": \"1962-08-11\",\n  \"end_date\": \"1966-11-17\",\n  \"reason\": null\n}",
+              "options": {
+                "raw": {
+                  "headerFamily": "json",
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/leaves",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "leaves"
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "Successful Response",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: bearer",
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"leave_type\": \"string\",\n  \"start_date\": \"1962-08-11\",\n  \"end_date\": \"1966-11-17\",\n  \"reason\": null\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/leaves",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "leaves"
+                  ]
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n  \"id\": 3537,\n  \"employee_id\": 4510,\n  \"leave_type\": \"string\",\n  \"start_date\": \"2012-09-28\",\n  \"end_date\": \"2018-12-08\",\n  \"total_days\": 8338.405204596029,\n  \"reason\": \"string\",\n  \"status\": \"string\",\n  \"approved_by\": 4174,\n  \"applied_at\": \"1982-04-11T00:07:08.733Z\",\n  \"approved_at\": \"1958-01-10T04:13:10.901Z\"\n}"
+            },
+            {
+              "name": "Validation Error",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: bearer",
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"leave_type\": \"string\",\n  \"start_date\": \"1962-08-11\",\n  \"end_date\": \"1966-11-17\",\n  \"reason\": null\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/leaves",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "leaves"
+                  ]
+                }
+              },
+              "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+              "code": 422,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n  \"detail\": [\n    {\n      \"loc\": [\n        \"string\",\n        \"string\"\n      ],\n      \"msg\": \"string\",\n      \"type\": \"string\",\n      \"input\": \"\",\n      \"ctx\": {}\n    },\n    {\n      \"loc\": [\n        1683,\n        \"string\"\n      ],\n      \"msg\": \"string\",\n      \"type\": \"string\",\n      \"input\": \"\",\n      \"ctx\": {}\n    }\n  ]\n}"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "payroll",
+      "item": [
+        {
+          "name": "generate",
+          "item": [
+            {
+              "name": "{employee_id}",
+              "item": [
+                {
+                  "name": "Generate Payroll",
+                  "request": {
+                    "auth": {
+                      "type": "bearer",
+                      "bearer": [
+                        {
+                          "key": "token",
+                          "value": "{{bearerToken}}",
+                          "type": "string"
+                        }
+                      ]
+                    },
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/payroll/generate/:employee_id?month=7484&year=4633",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "payroll",
+                        "generate",
+                        ":employee_id"
+                      ],
+                      "query": [
+                        {
+                          "key": "month",
+                          "value": "7484"
+                        },
+                        {
+                          "key": "year",
+                          "value": "4633"
+                        }
+                      ],
+                      "variable": [
+                        {
+                          "key": "employee_id",
+                          "value": "6740"
+                        }
+                      ]
+                    }
+                  },
+                  "response": [
+                    {
+                      "name": "Successful Response",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/payroll/generate/:employee_id?month=7484&year=4633",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "payroll",
+                            "generate",
+                            ":employee_id"
+                          ],
+                          "query": [
+                            {
+                              "key": "month",
+                              "value": "7484"
+                            },
+                            {
+                              "key": "year",
+                              "value": "4633"
+                            }
+                          ],
+                          "variable": [
+                            {
+                              "key": "employee_id",
+                              "value": "6740"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "body": "{\n  \"id\": 6240,\n  \"employee_id\": 9740,\n  \"month\": 6068,\n  \"year\": 4820,\n  \"basic_salary\": 6557.785902547322,\n  \"working_days\": 6734,\n  \"present_days\": 1943,\n  \"approved_leave_days\": 9028.891639926387,\n  \"lop_days\": 4596.473162471994,\n  \"lop_deduction\": 4756.269139307889,\n  \"gross_salary\": 967.7707716292039,\n  \"net_salary\": 3427.8015417268957,\n  \"status\": \"string\",\n  \"generated_at\": \"2022-12-02T11:27:30.099Z\",\n  \"locked_at\": null\n}"
+                    },
+                    {
+                      "name": "Validation Error",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/payroll/generate/:employee_id?month=7484&year=4633",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "payroll",
+                            "generate",
+                            ":employee_id"
+                          ],
+                          "query": [
+                            {
+                              "key": "month",
+                              "value": "7484"
+                            },
+                            {
+                              "key": "year",
+                              "value": "4633"
+                            }
+                          ],
+                          "variable": [
+                            {
+                              "key": "employee_id",
+                              "value": "6740"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+                      "code": 422,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "body": "{\n  \"detail\": [\n    {\n      \"loc\": [\n        \"string\",\n        \"string\"\n      ],\n      \"msg\": \"string\",\n      \"type\": \"string\",\n      \"input\": \"\",\n      \"ctx\": {}\n    },\n    {\n      \"loc\": [\n        1683,\n        \"string\"\n      ],\n      \"msg\": \"string\",\n      \"type\": \"string\",\n      \"input\": \"\",\n      \"ctx\": {}\n    }\n  ]\n}"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "my",
+          "item": [
+            {
+              "name": "Get My Payroll",
+              "request": {
+                "auth": {
+                  "type": "bearer",
+                  "bearer": [
+                    {
+                      "key": "token",
+                      "value": "{{bearerToken}}",
+                      "type": "string"
+                    }
+                  ]
+                },
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/payroll/my",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "payroll",
+                    "my"
+                  ]
+                }
+              },
+              "response": [
+                {
+                  "name": "Successful Response",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/payroll/my",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "payroll",
+                        "my"
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "body": "[\n  {\n    \"id\": 7581,\n    \"employee_id\": 8483,\n    \"month\": 1190,\n    \"year\": 2526,\n    \"basic_salary\": 6530.350927079369,\n    \"working_days\": 2430,\n    \"present_days\": 3778,\n    \"approved_leave_days\": 2404.9222876020517,\n    \"lop_days\": 9522.073047062673,\n    \"lop_deduction\": 240.94778442942166,\n    \"gross_salary\": 2187.7179905693224,\n    \"net_salary\": 581.4810900794188,\n    \"status\": \"string\",\n    \"generated_at\": \"1970-09-12T11:17:03.747Z\",\n    \"locked_at\": \"1986-10-24T07:29:51.941Z\"\n  },\n  {\n    \"id\": 4357,\n    \"employee_id\": 8356,\n    \"month\": 3912,\n    \"year\": 110,\n    \"basic_salary\": 8614.737428816221,\n    \"working_days\": 1277,\n    \"present_days\": 7028,\n    \"approved_leave_days\": 1422.8237801136888,\n    \"lop_days\": 5042.047281399588,\n    \"lop_deduction\": 6686.746436483309,\n    \"gross_salary\": 2283.542467646409,\n    \"net_salary\": 628.5222744377328,\n    \"status\": \"string\",\n    \"generated_at\": \"2023-08-12T21:13:14.965Z\",\n    \"locked_at\": \"2023-02-24T17:17:03.358Z\"\n  }\n]"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "{payroll_id}",
+          "item": [
+            {
+              "name": "salary-slip",
+              "item": [
+                {
+                  "name": "Download Salary Slip",
+                  "request": {
+                    "auth": {
+                      "type": "bearer",
+                      "bearer": [
+                        {
+                          "key": "token",
+                          "value": "{{bearerToken}}",
+                          "type": "string"
+                        }
+                      ]
+                    },
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/payroll/:payroll_id/salary-slip",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "payroll",
+                        ":payroll_id",
+                        "salary-slip"
+                      ],
+                      "variable": [
+                        {
+                          "key": "payroll_id",
+                          "value": "9124"
+                        }
+                      ]
+                    }
+                  },
+                  "response": [
+                    {
+                      "name": "Successful Response",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/payroll/:payroll_id/salary-slip",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "payroll",
+                            ":payroll_id",
+                            "salary-slip"
+                          ],
+                          "variable": [
+                            {
+                              "key": "payroll_id",
+                              "value": "9124"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "body": ""
+                    },
+                    {
+                      "name": "Validation Error",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/payroll/:payroll_id/salary-slip",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "payroll",
+                            ":payroll_id",
+                            "salary-slip"
+                          ],
+                          "variable": [
+                            {
+                              "key": "payroll_id",
+                              "value": "9124"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+                      "code": 422,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "body": "{\n  \"detail\": [\n    {\n      \"loc\": [\n        \"string\",\n        \"string\"\n      ],\n      \"msg\": \"string\",\n      \"type\": \"string\",\n      \"input\": \"\",\n      \"ctx\": {}\n    },\n    {\n      \"loc\": [\n        1683,\n        \"string\"\n      ],\n      \"msg\": \"string\",\n      \"type\": \"string\",\n      \"input\": \"\",\n      \"ctx\": {}\n    }\n  ]\n}"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "name": "lock",
+              "item": [
+                {
+                  "name": "Lock Payroll",
+                  "request": {
+                    "auth": {
+                      "type": "bearer",
+                      "bearer": [
+                        {
+                          "key": "token",
+                          "value": "{{bearerToken}}",
+                          "type": "string"
+                        }
+                      ]
+                    },
+                    "method": "PATCH",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/payroll/:payroll_id/lock",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "payroll",
+                        ":payroll_id",
+                        "lock"
+                      ],
+                      "variable": [
+                        {
+                          "key": "payroll_id",
+                          "value": "9124"
+                        }
+                      ]
+                    }
+                  },
+                  "response": [
+                    {
+                      "name": "Successful Response",
+                      "originalRequest": {
+                        "method": "PATCH",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/payroll/:payroll_id/lock",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "payroll",
+                            ":payroll_id",
+                            "lock"
+                          ],
+                          "variable": [
+                            {
+                              "key": "payroll_id",
+                              "value": "9124"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "body": "{\n  \"id\": 7818,\n  \"employee_id\": 2307,\n  \"month\": 3726,\n  \"year\": 3357,\n  \"basic_salary\": 9955.319293469316,\n  \"working_days\": 7581,\n  \"present_days\": 6732,\n  \"approved_leave_days\": 7287.6904765610325,\n  \"lop_days\": 7509.149403321664,\n  \"lop_deduction\": 2111.8138468327684,\n  \"gross_salary\": 9530.862583638873,\n  \"net_salary\": 1320.5149613562562,\n  \"status\": \"string\",\n  \"generated_at\": \"1967-02-11T18:05:56.152Z\",\n  \"locked_at\": \"1993-12-27T17:13:55.975Z\"\n}"
+                    },
+                    {
+                      "name": "Validation Error",
+                      "originalRequest": {
+                        "method": "PATCH",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/payroll/:payroll_id/lock",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "payroll",
+                            ":payroll_id",
+                            "lock"
+                          ],
+                          "variable": [
+                            {
+                              "key": "payroll_id",
+                              "value": "9124"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+                      "code": 422,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "body": "{\n  \"detail\": [\n    {\n      \"loc\": [\n        \"string\",\n        \"string\"\n      ],\n      \"msg\": \"string\",\n      \"type\": \"string\",\n      \"input\": \"\",\n      \"ctx\": {}\n    },\n    {\n      \"loc\": [\n        1683,\n        \"string\"\n      ],\n      \"msg\": \"string\",\n      \"type\": \"string\",\n      \"input\": \"\",\n      \"ctx\": {}\n    }\n  ]\n}"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "name": "credit",
+              "item": [
+                {
+                  "name": "Credit Salary",
+                  "request": {
+                    "auth": {
+                      "type": "bearer",
+                      "bearer": [
+                        {
+                          "key": "token",
+                          "value": "{{bearerToken}}",
+                          "type": "string"
+                        }
+                      ]
+                    },
+                    "method": "PATCH",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/payroll/:payroll_id/credit",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "payroll",
+                        ":payroll_id",
+                        "credit"
+                      ],
+                      "variable": [
+                        {
+                          "key": "payroll_id",
+                          "value": "9124"
+                        }
+                      ]
+                    }
+                  },
+                  "response": [
+                    {
+                      "name": "Successful Response",
+                      "originalRequest": {
+                        "method": "PATCH",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/payroll/:payroll_id/credit",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "payroll",
+                            ":payroll_id",
+                            "credit"
+                          ],
+                          "variable": [
+                            {
+                              "key": "payroll_id",
+                              "value": "9124"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "body": "{\n  \"id\": 7818,\n  \"employee_id\": 2307,\n  \"month\": 3726,\n  \"year\": 3357,\n  \"basic_salary\": 9955.319293469316,\n  \"working_days\": 7581,\n  \"present_days\": 6732,\n  \"approved_leave_days\": 7287.6904765610325,\n  \"lop_days\": 7509.149403321664,\n  \"lop_deduction\": 2111.8138468327684,\n  \"gross_salary\": 9530.862583638873,\n  \"net_salary\": 1320.5149613562562,\n  \"status\": \"string\",\n  \"generated_at\": \"1967-02-11T18:05:56.152Z\",\n  \"locked_at\": \"1993-12-27T17:13:55.975Z\"\n}"
+                    },
+                    {
+                      "name": "Validation Error",
+                      "originalRequest": {
+                        "method": "PATCH",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/payroll/:payroll_id/credit",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "payroll",
+                            ":payroll_id",
+                            "credit"
+                          ],
+                          "variable": [
+                            {
+                              "key": "payroll_id",
+                              "value": "9124"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+                      "code": 422,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "body": "{\n  \"detail\": [\n    {\n      \"loc\": [\n        \"string\",\n        \"string\"\n      ],\n      \"msg\": \"string\",\n      \"type\": \"string\",\n      \"input\": \"\",\n      \"ctx\": {}\n    },\n    {\n      \"loc\": [\n        1683,\n        \"string\"\n      ],\n      \"msg\": \"string\",\n      \"type\": \"string\",\n      \"input\": \"\",\n      \"ctx\": {}\n    }\n  ]\n}"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "name": "Get Payroll",
+              "request": {
+                "auth": {
+                  "type": "bearer",
+                  "bearer": [
+                    {
+                      "key": "token",
+                      "value": "{{bearerToken}}",
+                      "type": "string"
+                    }
+                  ]
+                },
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/payroll/:payroll_id",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "payroll",
+                    ":payroll_id"
+                  ],
+                  "variable": [
+                    {
+                      "key": "payroll_id",
+                      "value": "9124"
+                    }
+                  ]
+                }
+              },
+              "response": [
+                {
+                  "name": "Successful Response",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/payroll/:payroll_id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "payroll",
+                        ":payroll_id"
+                      ],
+                      "variable": [
+                        {
+                          "key": "payroll_id",
+                          "value": "9124"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "body": "{\n  \"id\": 7818,\n  \"employee_id\": 2307,\n  \"month\": 3726,\n  \"year\": 3357,\n  \"basic_salary\": 9955.319293469316,\n  \"working_days\": 7581,\n  \"present_days\": 6732,\n  \"approved_leave_days\": 7287.6904765610325,\n  \"lop_days\": 7509.149403321664,\n  \"lop_deduction\": 2111.8138468327684,\n  \"gross_salary\": 9530.862583638873,\n  \"net_salary\": 1320.5149613562562,\n  \"status\": \"string\",\n  \"generated_at\": \"1967-02-11T18:05:56.152Z\",\n  \"locked_at\": \"1993-12-27T17:13:55.975Z\"\n}"
+                },
+                {
+                  "name": "Validation Error",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/payroll/:payroll_id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "payroll",
+                        ":payroll_id"
+                      ],
+                      "variable": [
+                        {
+                          "key": "payroll_id",
+                          "value": "9124"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+                  "code": 422,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "body": "{\n  \"detail\": [\n    {\n      \"loc\": [\n        \"string\",\n        \"string\"\n      ],\n      \"msg\": \"string\",\n      \"type\": \"string\",\n      \"input\": \"\",\n      \"ctx\": {}\n    },\n    {\n      \"loc\": [\n        1683,\n        \"string\"\n      ],\n      \"msg\": \"string\",\n      \"type\": \"string\",\n      \"input\": \"\",\n      \"ctx\": {}\n    }\n  ]\n}"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Get Payroll History",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{bearerToken}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/payroll",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "payroll"
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "Successful Response",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: bearer",
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/payroll",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "payroll"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "body": "[\n  {\n    \"id\": 3599,\n    \"employee_id\": 5028,\n    \"month\": 1811,\n    \"year\": 9800,\n    \"basic_salary\": 5030.768594657662,\n    \"working_days\": 6971,\n    \"present_days\": 2636,\n    \"approved_leave_days\": 2216.7834466509253,\n    \"lop_days\": 5039.350847819895,\n    \"lop_deduction\": 4072.442863806265,\n    \"gross_salary\": 7239.0031565925965,\n    \"net_salary\": 9742.690798490812,\n    \"status\": \"string\",\n    \"generated_at\": \"1999-03-13T00:26:39.121Z\",\n    \"locked_at\": \"1972-07-22T21:26:55.876Z\"\n  },\n  {\n    \"id\": 4053,\n    \"employee_id\": 3868,\n    \"month\": 6073,\n    \"year\": 8782,\n    \"basic_salary\": 9858.79582037804,\n    \"working_days\": 3085,\n    \"present_days\": 4656,\n    \"approved_leave_days\": 4786.7180347768535,\n    \"lop_days\": 8528.23171658296,\n    \"lop_deduction\": 8446.50648742763,\n    \"gross_salary\": 3805.9347269498157,\n    \"net_salary\": 7595.019228329543,\n    \"status\": \"string\",\n    \"generated_at\": \"1948-07-16T18:34:49.240Z\",\n    \"locked_at\": \"2026-02-11T17:32:01.711Z\"\n  }\n]"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "dashboard",
+      "item": [
+        {
+          "name": "admin",
+          "item": [
+            {
+              "name": "Admin Dashboard",
+              "request": {
+                "auth": {
+                  "type": "bearer",
+                  "bearer": [
+                    {
+                      "key": "token",
+                      "value": "{{bearerToken}}",
+                      "type": "string"
+                    }
+                  ]
+                },
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/dashboard/admin",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "dashboard",
+                    "admin"
+                  ]
+                }
+              },
+              "response": [
+                {
+                  "name": "Successful Response",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/dashboard/admin",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "dashboard",
+                        "admin"
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "body": ""
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "reports",
+      "item": [
+        {
+          "name": "employees",
+          "item": [
+            {
+              "name": "csv",
+              "item": [
+                {
+                  "name": "Employee Csv Report",
+                  "request": {
+                    "auth": {
+                      "type": "bearer",
+                      "bearer": [
+                        {
+                          "key": "token",
+                          "value": "{{bearerToken}}",
+                          "type": "string"
+                        }
+                      ]
+                    },
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/reports/employees/csv",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "reports",
+                        "employees",
+                        "csv"
+                      ]
+                    }
+                  },
+                  "response": [
+                    {
+                      "name": "Successful Response",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/reports/employees/csv",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "reports",
+                            "employees",
+                            "csv"
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "body": ""
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "name": "pdf",
+              "item": [
+                {
+                  "name": "Employee Pdf Report",
+                  "request": {
+                    "auth": {
+                      "type": "bearer",
+                      "bearer": [
+                        {
+                          "key": "token",
+                          "value": "{{bearerToken}}",
+                          "type": "string"
+                        }
+                      ]
+                    },
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/reports/employees/pdf",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "reports",
+                        "employees",
+                        "pdf"
+                      ]
+                    }
+                  },
+                  "response": [
+                    {
+                      "name": "Successful Response",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/reports/employees/pdf",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "reports",
+                            "employees",
+                            "pdf"
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "body": ""
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "attendance",
+          "item": [
+            {
+              "name": "csv",
+              "item": [
+                {
+                  "name": "Attendance Csv Report",
+                  "request": {
+                    "auth": {
+                      "type": "bearer",
+                      "bearer": [
+                        {
+                          "key": "token",
+                          "value": "{{bearerToken}}",
+                          "type": "string"
+                        }
+                      ]
+                    },
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/reports/attendance/csv",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "reports",
+                        "attendance",
+                        "csv"
+                      ]
+                    }
+                  },
+                  "response": [
+                    {
+                      "name": "Successful Response",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/reports/attendance/csv",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "reports",
+                            "attendance",
+                            "csv"
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "body": ""
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "name": "pdf",
+              "item": [
+                {
+                  "name": "Attendance Pdf Report",
+                  "request": {
+                    "auth": {
+                      "type": "bearer",
+                      "bearer": [
+                        {
+                          "key": "token",
+                          "value": "{{bearerToken}}",
+                          "type": "string"
+                        }
+                      ]
+                    },
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/reports/attendance/pdf",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "reports",
+                        "attendance",
+                        "pdf"
+                      ]
+                    }
+                  },
+                  "response": [
+                    {
+                      "name": "Successful Response",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/reports/attendance/pdf",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "reports",
+                            "attendance",
+                            "pdf"
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "body": ""
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "leaves",
+          "item": [
+            {
+              "name": "csv",
+              "item": [
+                {
+                  "name": "Leave Csv Report",
+                  "request": {
+                    "auth": {
+                      "type": "bearer",
+                      "bearer": [
+                        {
+                          "key": "token",
+                          "value": "{{bearerToken}}",
+                          "type": "string"
+                        }
+                      ]
+                    },
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/reports/leaves/csv",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "reports",
+                        "leaves",
+                        "csv"
+                      ]
+                    }
+                  },
+                  "response": [
+                    {
+                      "name": "Successful Response",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/reports/leaves/csv",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "reports",
+                            "leaves",
+                            "csv"
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "body": ""
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "name": "pdf",
+              "item": [
+                {
+                  "name": "Leave Pdf Report",
+                  "request": {
+                    "auth": {
+                      "type": "bearer",
+                      "bearer": [
+                        {
+                          "key": "token",
+                          "value": "{{bearerToken}}",
+                          "type": "string"
+                        }
+                      ]
+                    },
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/reports/leaves/pdf",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "reports",
+                        "leaves",
+                        "pdf"
+                      ]
+                    }
+                  },
+                  "response": [
+                    {
+                      "name": "Successful Response",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/reports/leaves/pdf",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "reports",
+                            "leaves",
+                            "pdf"
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "body": ""
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "payroll",
+          "item": [
+            {
+              "name": "csv",
+              "item": [
+                {
+                  "name": "Payroll Csv Report",
+                  "request": {
+                    "auth": {
+                      "type": "bearer",
+                      "bearer": [
+                        {
+                          "key": "token",
+                          "value": "{{bearerToken}}",
+                          "type": "string"
+                        }
+                      ]
+                    },
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/reports/payroll/csv",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "reports",
+                        "payroll",
+                        "csv"
+                      ]
+                    }
+                  },
+                  "response": [
+                    {
+                      "name": "Successful Response",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/reports/payroll/csv",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "reports",
+                            "payroll",
+                            "csv"
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "body": ""
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "name": "pdf",
+              "item": [
+                {
+                  "name": "Payroll Pdf Report",
+                  "request": {
+                    "auth": {
+                      "type": "bearer",
+                      "bearer": [
+                        {
+                          "key": "token",
+                          "value": "{{bearerToken}}",
+                          "type": "string"
+                        }
+                      ]
+                    },
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/reports/payroll/pdf",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "reports",
+                        "payroll",
+                        "pdf"
+                      ]
+                    }
+                  },
+                  "response": [
+                    {
+                      "name": "Successful Response",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/reports/payroll/pdf",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "reports",
+                            "payroll",
+                            "pdf"
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "body": ""
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "audit-logs",
+      "item": [
+        {
+          "name": "Get Audit Logs",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{bearerToken}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/audit-logs",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "audit-logs"
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "Successful Response",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: bearer",
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/audit-logs",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "audit-logs"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "body": ""
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "/",
+      "item": [
+        {
+          "name": "Root",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                ""
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "Successful Response",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    ""
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "body": ""
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "health",
+      "item": [
+        {
+          "name": "Health Check",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/health",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "health"
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "Successful Response",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/health",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "health"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "body": ""
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "/"
+    }
+  ]
+}
