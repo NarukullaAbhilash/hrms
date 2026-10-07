@@ -1,18 +1,34 @@
 from datetime import datetime, timedelta, timezone
+import os
 
 import bcrypt
 from jose import jwt
+from dotenv import load_dotenv
+
+# ============================================================
+# LOAD ENVIRONMENT VARIABLES
+# ============================================================
+
+load_dotenv()
 
 
 # ============================================================
 # JWT CONFIGURATION
 # ============================================================
 
-SECRET_KEY = "hrms-development-secret-key-change-later"
+SECRET_KEY = os.getenv("SECRET_KEY")
 
-ALGORITHM = "HS256"
+if not SECRET_KEY:
+    raise RuntimeError(
+        "SECRET_KEY is not configured. "
+        "Create a .env file in the backend folder."
+    )
 
-ACCESS_TOKEN_EXPIRE_MINUTES = 60
+ALGORITHM = os.getenv("ALGORITHM", "HS256")
+
+ACCESS_TOKEN_EXPIRE_MINUTES = int(
+    os.getenv("ACCESS_TOKEN_EXPIRE_MINUTES", "60")
+)
 
 
 # ============================================================
